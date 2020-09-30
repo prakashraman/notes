@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;create-content&quot; | write-lite</title>
+	<title>&quot;create-note&quot; | write-lite</title>
 	<meta name="description" content="Documentation for write-lite">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_create_content_.html">&quot;create-content&quot;</a>
+					<a href="_create_note_.html">&quot;create-note&quot;</a>
 				</li>
 			</ul>
-			<h1>Module &quot;create-content&quot;</h1>
+			<h1>Module &quot;create-note&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,9 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_create_content_.html#createcontent" class="tsd-kind-icon">create<wbr>Content</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_create_note_.html#createnote" class="tsd-kind-icon">create<wbr>Note</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_create_note_.html#setupfolderfornote" class="tsd-kind-icon">setup<wbr>Folder<wbr>For<wbr>Note</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_create_note_.html#setupfreshnote" class="tsd-kind-icon">setup<wbr>Fresh<wbr>Note</a></li>
 							</ul>
 						</section>
 					</div>
@@ -82,18 +84,81 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="createcontent" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> create<wbr>Content</h3>
+					<a name="createnote" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> create<wbr>Note</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Content<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Note<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/555e403/src/create-content.ts#L3">create-content.ts:3</a></li>
+									<li>Defined in create-note.ts:50</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates the new note</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+					<a name="setupfolderfornote" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> setup<wbr>Folder<wbr>For<wbr>Note</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">setup<wbr>Folder<wbr>For<wbr>Note<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in create-note.ts:13</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets up the folder &#39;notes/[year]/[month]/[date]&#39;</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>{string} storage path for the note</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+					<a name="setupfreshnote" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> setup<wbr>Fresh<wbr>Note</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">setup<wbr>Fresh<wbr>Note<span class="tsd-signature-symbol">(</span>title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, author<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in create-note.ts:35</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a markdown file with the handle in the dated folder</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>title: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>author: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+										</div>
+									</div>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -110,7 +175,7 @@
 						<a href="_constants_.html">&quot;constants&quot;</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="_create_content_.html">&quot;create-<wbr>content&quot;</a>
+						<a href="_create_note_.html">&quot;create-<wbr>note&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_helpers_.html">&quot;helpers&quot;</a>
@@ -129,7 +194,13 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_create_content_.html#createcontent" class="tsd-kind-icon">create<wbr>Content</a>
+						<a href="_create_note_.html#createnote" class="tsd-kind-icon">create<wbr>Note</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_create_note_.html#setupfolderfornote" class="tsd-kind-icon">setup<wbr>Folder<wbr>For<wbr>Note</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_create_note_.html#setupfreshnote" class="tsd-kind-icon">setup<wbr>Fresh<wbr>Note</a>
 					</li>
 				</ul>
 			</nav>

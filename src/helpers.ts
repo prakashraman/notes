@@ -14,7 +14,7 @@ const blue = (text: string): void => {
  *
  * @param {string} text
  */
-const green = (text: string): void => {
+const success = (text: string): void => {
   console.log(chalk.green(text));
 };
 
@@ -23,7 +23,7 @@ const normal = (message: string | object): void => {
 };
 const log = {
   blue,
-  green,
+  success,
   log: console.log,
 };
 

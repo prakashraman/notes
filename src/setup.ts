@@ -1,9 +1,8 @@
-import { existsSync, mkdirSync, writeFile } from "fs";
+import { existsSync, mkdirSync } from "fs";
 
 import { log } from "./helpers";
 import * as constants from "./constants";
-import manifestTemplate from "./templates/manifest";
-import { Manifest } from "./typings";
+import { init as initManifest } from "./manifest";
 
 /**
  * Determines wheather a configuration is present. Looks for the folder structures and manifest.json
@@ -26,25 +25,12 @@ const isConfigurationPresent = (): boolean => {
  */
 const init = (): void => {
   mkdirSync(constants.CONTENTS_PATH);
-  log.green(`Created 'contents' folder at ${constants.CONTENTS_PATH}`);
+  log.success(`Created 'contents' folder at ${constants.CONTENTS_PATH}`);
 
-  const manifest: Manifest = {
-    ...manifestTemplate,
-    createdAt: new Date().toISOString(),
-  };
-
-  writeFile(
-    constants.MANIFEST_PATH,
-    JSON.stringify(manifest, null, 2),
-    (err) => {
-      if (err) throw err;
-
-      log.green(`Created manifest file at ${constants.MANIFEST_PATH}`);
-    }
-  );
+  initManifest();
 
   mkdirSync(constants.NOTES_PATH);
-  log.green(`Created 'notes' folder at ${constants.NOTES_PATH}`);
+  log.success(`Created 'notes' folder at ${constants.NOTES_PATH}`);
 };
 
 /**
@@ -54,9 +40,8 @@ const init = (): void => {
 const setup = (): void => {
   log.blue("Looking for existing configuration ...");
 
-  log.log({ manifestTemplate });
   if (isConfigurationPresent()) {
-    log.green("Configuration is present. Shall leave things as is ...");
+    log.success("Configuration is present. Shall leave things as is ...");
     return;
   }
 

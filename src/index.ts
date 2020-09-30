@@ -1,6 +1,6 @@
 import * as inquirer from "inquirer";
 import { setup } from "./setup";
-import { createContent } from "./create-content";
+import { createNote } from "./create-note";
 import * as chalk from "chalk";
 
 console.log(chalk.green("Welcome to", chalk.bold("write-lite")), "\n");
@@ -19,5 +19,5 @@ inquirer
   })
   .then((answer) => {
     if (answer.choice === "setup") setup();
-    else createContent();
+    else createNote();
   });
