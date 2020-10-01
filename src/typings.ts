@@ -7,9 +7,9 @@
 /**
  * Note
  */
-type Note = {
+export type Note = {
   /** Auto-increment ID of the article. Decided by the previous ID */
-  id: string;
+  id: number;
   /** Title of the Note. Initial used to contruct the handle */
   title: string;
   /** Contructed from the first title provided. Should NOT be directly update in the manifest file */

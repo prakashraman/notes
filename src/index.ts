@@ -12,8 +12,8 @@ inquirer
     type: "list",
     choices: [
       { value: "setup", name: "Setup lite blog" },
-      { value: "new", name: "Create a new content" },
-      { value: "list", name: "List content" },
+      { value: "new", name: "Create note" },
+      { value: "list", name: "List notes" },
       { value: "build", name: "Build HTML content" },
     ],
   })

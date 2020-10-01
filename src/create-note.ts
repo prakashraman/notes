@@ -4,6 +4,8 @@ import slugify from "slugify";
 
 import { log } from "./helpers";
 import { NOTES_PATH } from "./constants";
+import { getNextNoteId, getManifest, writeManifest } from "./manifest";
+import { Note } from "./typings";
 
 /**
  * Sets up the folder 'notes/[year]/[month]/[date]'
@@ -33,14 +35,35 @@ const setupFolderForNote = (): string => {
  * @param {string} author
  */
 const setupFreshNote = (title: string, author: string): void => {
-  console.log({ title, author, slug: slugify(title.toLowerCase()) });
-  const handle = slugify(title, { strict: true });
+  const handle = slugify(title.toLowerCase(), { strict: true });
   const path = `${setupFolderForNote()}/${handle}.md`;
+
+  console.log({ title, author, handle });
 
   log.blue(`Creating markdown file at ${path} ...`);
   writeFileSync(path, "");
   log.success(`New file created at: ${path}`);
-  log.log("Open the file using your favorite editor and start typing!");
+
+  const note: Note = {
+    id: getNextNoteId(),
+    title: title,
+    handle,
+    path,
+    createdAt: new Date(),
+    publishedAt: new Date(),
+  };
+
+  log.log({ next: getNextNoteId(), man: getManifest() });
+
+  const manifest = getManifest();
+
+  writeManifest({
+    ...manifest,
+    notes: [...manifest.notes, note],
+  });
+
+  log.success("Successfully updated manifest with the new note");
+  log.success("Open the file using your favorite editor and start typing!");
 };
 
 /**
@@ -48,6 +71,7 @@ const setupFreshNote = (title: string, author: string): void => {
  *
  */
 const createNote = () => {
+  return setupFreshNote("this is nice", "prakash");
   inquirer
     .prompt([
       {
