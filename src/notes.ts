@@ -4,7 +4,12 @@ import slugify from "slugify";
 
 import { log } from "./helpers";
 import { NOTES_PATH } from "./constants";
-import { getNextNoteId, getManifest, writeManifest } from "./manifest";
+import {
+  getNextNoteId,
+  getManifest,
+  writeManifest,
+  getNotes,
+} from "./manifest";
 import { Note } from "./typings";
 
 /**
@@ -29,16 +34,25 @@ const setupFolderForNote = (): string => {
 };
 
 /**
- * Create a markdown file with the handle in the dated folder
+ * Creates a new note by doing the following
+ *
+ * 1. Create a markdown file
+ * 2. Place file in the dated folder
+ * 3. Update the manifest file with the note
  *
  * @param {string} title
  * @param {string} author
  */
 const setupFreshNote = (title: string, author: string): void => {
+  if (!title) {
+    log.error(
+      "No title found. Not creating a note! Come back after coffee and try again."
+    );
+    return;
+  }
+
   const handle = slugify(title.toLowerCase(), { strict: true });
   const path = `${setupFolderForNote()}/${handle}.md`;
-
-  console.log({ title, author, handle });
 
   log.blue(`Creating markdown file at ${path} ...`);
   writeFileSync(path, "");
@@ -53,8 +67,6 @@ const setupFreshNote = (title: string, author: string): void => {
     publishedAt: new Date(),
   };
 
-  log.log({ next: getNextNoteId(), man: getManifest() });
-
   const manifest = getManifest();
 
   writeManifest({
@@ -67,11 +79,10 @@ const setupFreshNote = (title: string, author: string): void => {
 };
 
 /**
- * Creates the new note
+ * Creates the new note, by asking a series of very personal questions
  *
  */
 const createNote = () => {
-  return setupFreshNote("this is nice", "prakash");
   inquirer
     .prompt([
       {
@@ -91,4 +102,21 @@ const createNote = () => {
     });
 };
 
-export { createNote };
+/**
+ * List all the notes
+ *
+ */
+const listNotes = (): void => {
+  const notes = getNotes();
+  if (notes.length === 0) {
+    return log.error("No notes found. Why not create your first one?");
+  }
+
+  log.success(`Found ${notes.length} note(s)`);
+
+  notes.forEach((note) => {
+    log.log(`[id: ${note.id}]: ${note.title}`);
+  });
+};
+
+export { createNote, listNotes };

@@ -5,6 +5,10 @@ import { MANIFEST_PATH } from "./constants";
 import { log } from "./helpers";
 import { Note, Manifest } from "./typings";
 
+/**
+ * Creates a first empty manifest
+ *
+ */
 const init = (): void => {
   const manifest: Manifest = {
     ...manifestTemplate,
@@ -43,22 +47,16 @@ const getNotes = (): Note[] => {
 };
 
 /**
- * Return a Note from the manifest
- *
- * @param {number} id
- * @return {*}  {Note}
- */
-const getNote = (id: number): Note => {
-  return;
-};
-
-/**
  * Returns the next available ID for a note
  *
  * @return {*}  {number}
  */
 const getNextNoteId = (): number => {
-  return 100;
+  const notes = getNotes();
+
+  if (notes.length === 0) return 1;
+
+  return notes[notes.length - 1].id + 1;
 };
 
 export { init, getManifest, getNextNoteId, writeManifest, getNotes };

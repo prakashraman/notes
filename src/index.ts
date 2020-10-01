@@ -1,6 +1,6 @@
 import * as inquirer from "inquirer";
 import { setup } from "./setup";
-import { createNote } from "./create-note";
+import { createNote, listNotes } from "./notes";
 import * as chalk from "chalk";
 
 console.log(chalk.green("Welcome to", chalk.bold("write-lite")), "\n");
@@ -19,5 +19,6 @@ inquirer
   })
   .then((answer) => {
     if (answer.choice === "setup") setup();
-    else createNote();
+    else if (answer.choice === "list") listNotes();
+    else if (answer.choice === "new") createNote();
   });

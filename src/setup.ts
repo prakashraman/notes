@@ -5,7 +5,7 @@ import * as constants from "./constants";
 import { init as initManifest } from "./manifest";
 
 /**
- * Determines wheather a configuration is present. Looks for the folder structures and manifest.json
+ * Determines whether a configuration is present. Looks for the folder structures and manifest.json
  *
  * @return {*}  {boolean}
  */
