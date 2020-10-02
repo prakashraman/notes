@@ -80,6 +80,8 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_typings_.html#imanifest" class="tsd-kind-icon">IManifest</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_typings_.html#inote" class="tsd-kind-icon">INote</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_typings_.html#manifest" class="tsd-kind-icon">Manifest</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_typings_.html#note" class="tsd-kind-icon">Note</a></li>
 							</ul>
@@ -90,12 +92,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="imanifest" class="tsd-anchor"></a>
+					<h3>IManifest</h3>
+					<div class="tsd-signature tsd-kind-icon">IManifest<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Pick</span><span class="tsd-signature-symbol">&lt;</span><a href="_typings_.html#manifest" class="tsd-signature-type">Manifest</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"createdAt"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>notes<span class="tsd-signature-symbol">: </span><a href="_typings_.html#inote" class="tsd-signature-type">INote</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/2d99910/src/typings.ts#L42">typings.ts:42</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Manifest type for the public interfcae</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="inote" class="tsd-anchor"></a>
+					<h3>INote</h3>
+					<div class="tsd-signature tsd-kind-icon">INote<span class="tsd-signature-symbol">:</span> <a href="_typings_.html#note" class="tsd-signature-type">Note</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>summary<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/2d99910/src/typings.ts#L35">typings.ts:35</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Note type for the public interface</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="manifest" class="tsd-anchor"></a>
 					<h3>Manifest</h3>
 					<div class="tsd-signature tsd-kind-icon">Manifest<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>createdAt<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>notes<span class="tsd-signature-symbol">: </span><a href="_typings_.html#note" class="tsd-signature-type">Note</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/8b02f07/src/typings.ts#L25">typings.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/2d99910/src/typings.ts#L25">typings.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -126,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">Note<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>createdAt<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>handle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>publishedAt<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/8b02f07/src/typings.ts#L10">typings.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/2d99910/src/typings.ts#L10">typings.ts:10</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -197,6 +229,9 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="_build_.html">&quot;build&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="_config_constants_.html">&quot;config/constants&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -224,6 +259,12 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="_typings_.html#imanifest" class="tsd-kind-icon">IManifest</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="_typings_.html#inote" class="tsd-kind-icon">INote</a>
+					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="_typings_.html#manifest" class="tsd-kind-icon">Manifest</a>
 					</li>

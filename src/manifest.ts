@@ -3,7 +3,7 @@ import { writeFile, readFileSync, writeFileSync } from "fs";
 import manifestTemplate from "./config/templates/manifest";
 import { MANIFEST_PATH } from "./config/constants";
 import { log, getAbsolutePath } from "./helpers";
-import { Note, Manifest } from "./typings";
+import { Note, Manifest, INote, IManifest } from "./typings";
 
 /**
  * Creates a first empty manifest
@@ -80,4 +80,32 @@ const getNextNoteId = (): number => {
   return notes[notes.length - 1].id + 1;
 };
 
-export { init, getManifest, getNextNoteId, writeManifest, getNotes, getNote };
+/** Interface methods */
+
+const getINotes = (): INote[] => {
+  const notes = getManifest().notes;
+
+  return notes.map<INote>((note) => ({
+    ...note,
+    summary: "",
+  }));
+};
+
+const getIManifest = (): IManifest => {
+  const manifest = getManifest();
+
+  return {
+    ...manifest,
+    notes: getINotes(),
+  };
+};
+
+export {
+  init,
+  getManifest,
+  getNextNoteId,
+  writeManifest,
+  getNotes,
+  getNote,
+  getIManifest,
+};

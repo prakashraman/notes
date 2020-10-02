@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx ts-node src/index.ts",
     "setup": "npx ts-node scripts/setup.ts",
-    "note": "npx ts-node scripts/note.ts"
+    "note": "npx ts-node scripts/note.ts",
+    "build": "npx ts-node scripts/build.ts"
   },
   "author": "",
   "license": "ISC",

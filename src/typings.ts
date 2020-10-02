@@ -28,3 +28,17 @@ export type Manifest = {
   /** Auto-generated timestamp during init */
   createdAt: Date | string;
 };
+
+/**
+ * Note type for the public interface
+ */
+export type INote = Note & {
+  summary: string;
+};
+
+/**
+ * Manifest type for the public interfcae
+ */
+export type IManifest = Pick<Manifest, "createdAt"> & {
+  notes: INote[];
+};
