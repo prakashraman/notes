@@ -1,9 +1,8 @@
 import * as inquirer from "inquirer";
-import * as chalk from "chalk";
 import * as figlet from "figlet";
 
 import { setup } from "./setup";
-import { createNote, listNotes } from "./notes";
+import { createNote, listNotes } from "./notes/notes";
 import { log } from "./helpers";
 
 /**

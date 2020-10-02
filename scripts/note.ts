@@ -1,4 +1,3 @@
-import { create } from "ts-node";
-import { createNote } from "../src/notes";
+import { createNote } from "../src/notes/notes";
 
 createNote();

@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync } from "fs";
 
 import { log } from "./helpers";
-import * as constants from "./constants";
+import * as constants from "./config/constants";
 import { init as initManifest } from "./manifest";
 
 /**

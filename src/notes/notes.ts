@@ -2,20 +2,20 @@ import * as inquirer from "inquirer";
 import { mkdirSync, writeFileSync } from "fs";
 import slugify from "slugify";
 
-import { log } from "./helpers";
-import { NOTES_PATH } from "./constants";
+import { log, getAbsolutePath } from "../helpers";
+import { NOTES_PATH } from "../config/constants";
 import {
   getNextNoteId,
   getManifest,
   writeManifest,
   getNotes,
-} from "./manifest";
-import { Note } from "./typings";
+} from "../manifest";
+import { Note } from "../typings";
 
 /**
  * Sets up the folder 'notes/[year]/[month]/[date]'
  *
- * @return {*}  {string} storage path for the note
+ * @return {*}  {string} relative path for the note folder
  */
 const setupFolderForNote = (): string => {
   const now = new Date();
@@ -24,13 +24,15 @@ const setupFolderForNote = (): string => {
     now.getMonth(),
     now.getDate(),
   ];
-  const path = `${NOTES_PATH}/${year}/${month}/${date}`;
+  const relativePath = `${NOTES_PATH}/${year}/${month}/${date}`;
 
-  log.blue(`Creating folder structure for the note: ${path} ...`);
-  mkdirSync(path, { recursive: true });
+  log.blue(`Creating folder structure for the note: ${relativePath} ...`);
+  mkdirSync(getAbsolutePath(`${relativePath}`), {
+    recursive: true,
+  });
   log.success("Successfully created note container folder");
 
-  return path;
+  return relativePath;
 };
 
 /**
@@ -55,7 +57,7 @@ const setupFreshNote = (title: string, author: string): void => {
   const path = `${setupFolderForNote()}/${handle}.md`;
 
   log.blue(`Creating markdown file at ${path} ...`);
-  writeFileSync(path, "");
+  writeFileSync(getAbsolutePath(path), "");
   log.success(`New file created at: ${path}`);
 
   const note: Note = {

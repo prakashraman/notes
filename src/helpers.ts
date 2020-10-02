@@ -1,5 +1,7 @@
 import * as chalk from "chalk";
 
+import { ROOT_PATH } from "./config/constants";
+
 /**
  * Logs in blue
  *
@@ -43,4 +45,14 @@ const log = {
   log: console.log,
 };
 
-export { log };
+/**
+ * Returns the absolute path for a passed relative path
+ *
+ * @param {string} path
+ * @return {*}  {string}
+ */
+const getAbsolutePath = (path: string): string => {
+  return `${ROOT_PATH}/${path}`;
+};
+
+export { log, getAbsolutePath };

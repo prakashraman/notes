@@ -1,4 +1,4 @@
-import { Manifest } from "../typings";
+import { Manifest } from "../../typings";
 
 const manifest: Manifest = {
   notes: [],

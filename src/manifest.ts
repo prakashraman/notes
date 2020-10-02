@@ -1,8 +1,8 @@
 import { writeFile, readFileSync } from "fs";
 
-import manifestTemplate from "./templates/manifest";
-import { MANIFEST_PATH } from "./constants";
-import { log } from "./helpers";
+import manifestTemplate from "./config/templates/manifest";
+import { MANIFEST_PATH } from "./config/constants";
+import { log, getAbsolutePath } from "./helpers";
 import { Note, Manifest } from "./typings";
 
 /**
@@ -24,11 +24,15 @@ const init = (): void => {
  * @param {Manifest} manifest
  */
 const writeManifest = (manifest: Manifest): void => {
-  writeFile(MANIFEST_PATH, JSON.stringify(manifest, null, 2), (err) => {
-    if (err) throw err;
+  writeFile(
+    getAbsolutePath(MANIFEST_PATH),
+    JSON.stringify(manifest, null, 2),
+    (err) => {
+      if (err) throw err;
 
-    log.success(`Created manifest file at ${MANIFEST_PATH}`);
-  });
+      log.success(`Created manifest file at ${MANIFEST_PATH}`);
+    }
+  );
 };
 
 /**
@@ -37,11 +41,18 @@ const writeManifest = (manifest: Manifest): void => {
  * @return {*}  {Manifest}
  */
 const getManifest = (): Manifest => {
-  const data = readFileSync(MANIFEST_PATH, { encoding: "utf8" });
+  const data = readFileSync(getAbsolutePath(MANIFEST_PATH), {
+    encoding: "utf8",
+  });
 
   return JSON.parse(data) as Manifest;
 };
 
+/**
+ * Return all the notes from the manifest
+ *
+ * @return {*}  {Note[]}
+ */
 const getNotes = (): Note[] => {
   return getManifest().notes;
 };
