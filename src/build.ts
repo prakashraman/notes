@@ -20,6 +20,10 @@ const clean = () => {
   log.success("No existing build folder present. Skipping ...");
 };
 
+/**
+ * Write a fresh IManifest file. Expected to be consumed via HTTP
+ *
+ */
 const writeIManifest = () => {
   const iManifest = getIManifest();
 
@@ -31,7 +35,13 @@ const writeIManifest = () => {
   log.success(`Successfully created iManifest file at ${IMANIFEST_PATH}`);
 };
 
-const build = async () => {
+/**
+ * Entry point to the build process. Cleans the build folder and recreates it.
+ * Ideally should be run on the CD flow and build folder is to be
+ * pushed to a publicly accessible server
+ *
+ */
+const build = () => {
   clean();
 
   log.blue("Building notes\nCreating build folder");

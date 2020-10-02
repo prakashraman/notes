@@ -75,6 +75,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_build_.html#build" class="tsd-kind-icon">build</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_build_.html#clean" class="tsd-kind-icon">clean</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_build_.html#writeimanifest" class="tsd-kind-icon">writeIManifest</a></li>
 							</ul>
 						</section>
 					</div>
@@ -92,9 +93,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/2d99910/src/build.ts#L22">build.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/4831db9/src/build.ts#L44">build.ts:44</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Entry point to the build process. Cleans the build folder and recreates it.
+										Ideally should be run on the CD flow and build folder is to be
+									pushed to a publicly accessible server</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -109,12 +117,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/2d99910/src/build.ts#L10">build.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/4831db9/src/build.ts#L11">build.ts:11</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Cleans the dist folder of all remnants</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+					<a name="writeimanifest" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> writeIManifest</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">writeIManifest<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/4831db9/src/build.ts#L27">build.ts:27</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Write a fresh IManifest file. Expected to be consumed via HTTP</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -165,6 +195,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_build_.html#clean" class="tsd-kind-icon">clean</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_build_.html#writeimanifest" class="tsd-kind-icon">writeIManifest</a>
 					</li>
 				</ul>
 			</nav>
