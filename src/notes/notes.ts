@@ -9,6 +9,7 @@ import {
   getManifest,
   writeManifest,
   getNotes,
+  getNote,
 } from "../manifest";
 import { Note } from "../typings";
 
@@ -44,8 +45,9 @@ const setupFolderForNote = (): string => {
  *
  * @param {string} title
  * @param {string} author
+ * @return {*}  {Note}
  */
-const setupFreshNote = (title: string, author: string): void => {
+const setupFreshNote = (title: string, author: string): Note => {
   if (!title) {
     log.error(
       "No title found. Not creating a note! Come back after coffee and try again."
@@ -60,9 +62,10 @@ const setupFreshNote = (title: string, author: string): void => {
   writeFileSync(getAbsolutePath(path), "");
   log.success(`New file created at: ${path}`);
 
+  const id = getNextNoteId();
   const note: Note = {
-    id: getNextNoteId(),
-    title: title,
+    id,
+    title,
     handle,
     path,
     createdAt: new Date(),
@@ -78,6 +81,8 @@ const setupFreshNote = (title: string, author: string): void => {
 
   log.success("Successfully updated manifest with the new note");
   log.success("Open the file using your favorite editor and start typing!");
+
+  return getNote(id);
 };
 
 /**

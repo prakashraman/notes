@@ -1,4 +1,4 @@
-import { writeFile, readFileSync } from "fs";
+import { writeFile, readFileSync, writeFileSync } from "fs";
 
 import manifestTemplate from "./config/templates/manifest";
 import { MANIFEST_PATH } from "./config/constants";
@@ -24,15 +24,11 @@ const init = (): void => {
  * @param {Manifest} manifest
  */
 const writeManifest = (manifest: Manifest): void => {
-  writeFile(
+  writeFileSync(
     getAbsolutePath(MANIFEST_PATH),
-    JSON.stringify(manifest, null, 2),
-    (err) => {
-      if (err) throw err;
-
-      log.success(`Created manifest file at ${MANIFEST_PATH}`);
-    }
+    JSON.stringify(manifest, null, 2)
   );
+  log.success(`Updated manifest file at ${MANIFEST_PATH}`);
 };
 
 /**
@@ -58,6 +54,20 @@ const getNotes = (): Note[] => {
 };
 
 /**
+ * Return a Note for an ID
+ *
+ * @param {number} id
+ * @return {*}  {Note}
+ */
+const getNote = (id: number): Note => {
+  const note = getNotes().find((n) => n.id === id);
+
+  if (!note) throw new Error(`Did not find Note with ID ${id}`);
+
+  return note;
+};
+
+/**
  * Returns the next available ID for a note
  *
  * @return {*}  {number}
@@ -70,4 +80,4 @@ const getNextNoteId = (): number => {
   return notes[notes.length - 1].id + 1;
 };
 
-export { init, getManifest, getNextNoteId, writeManifest, getNotes };
+export { init, getManifest, getNextNoteId, writeManifest, getNotes, getNote };
