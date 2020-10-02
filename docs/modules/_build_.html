@@ -75,6 +75,8 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_build_.html#build" class="tsd-kind-icon">build</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_build_.html#clean" class="tsd-kind-icon">clean</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_build_.html#writehtmlnote" class="tsd-kind-icon">writeHTMLNote</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_build_.html#writehtmlnotes" class="tsd-kind-icon">writeHTMLNotes</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_build_.html#writeimanifest" class="tsd-kind-icon">writeIManifest</a></li>
 							</ul>
 						</section>
@@ -87,13 +89,13 @@
 					<a name="build" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> build</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">build<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">build<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/4831db9/src/build.ts#L44">build.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/5bcfe31/src/build.ts#L82">build.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -103,7 +105,7 @@
 									pushed to a publicly accessible server</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -117,12 +119,67 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/4831db9/src/build.ts#L11">build.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/5bcfe31/src/build.ts#L20">build.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Cleans the dist folder of all remnants</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+					<a name="writehtmlnote" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> writeHTMLNote</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">writeHTMLNote<span class="tsd-signature-symbol">(</span>note<span class="tsd-signature-symbol">: </span><a href="_typings_.html#note" class="tsd-signature-type">Note</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/5bcfe31/src/build.ts#L53">build.ts:53</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts the note&#39;s mardown into HTML and write to a file in
+									build folder</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>note: <a href="_typings_.html#note" class="tsd-signature-type">Note</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+					<a name="writehtmlnotes" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> writeHTMLNotes</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">writeHTMLNotes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/5bcfe31/src/build.ts#L72">build.ts:72</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Iterates over all the notes and converts to HTML</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -139,7 +196,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/4831db9/src/build.ts#L27">build.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/write-lite/blob/5bcfe31/src/build.ts#L36">build.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -195,6 +252,12 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_build_.html#clean" class="tsd-kind-icon">clean</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_build_.html#writehtmlnote" class="tsd-kind-icon">writeHTMLNote</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_build_.html#writehtmlnotes" class="tsd-kind-icon">writeHTMLNotes</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_build_.html#writeimanifest" class="tsd-kind-icon">writeIManifest</a>
