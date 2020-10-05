@@ -11,7 +11,7 @@
     "note": "npx ts-node scripts/note.ts",
     "build": "npx ts-node scripts/build.ts"
   },
-  "author": "",
+  "author": "Prakash Raman",
   "license": "ISC",
   "dependencies": {
     "@types/figlet": "^1.2.0",
