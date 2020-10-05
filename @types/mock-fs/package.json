@@ -1,0 +1,64 @@
+{
+  "_from": "@types/mock-fs",
+  "_id": "@types/mock-fs@4.10.0",
+  "_inBundle": false,
+  "_integrity": "sha512-FQ5alSzmHMmliqcL36JqIA4Yyn9jyJKvRSGV3mvPh108VFatX7naJDzSG4fnFQNZFq9dIx0Dzoe6ddflMB2Xkg==",
+  "_location": "/@types/mock-fs",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@types/mock-fs",
+    "name": "@types/mock-fs",
+    "escapedName": "@types%2fmock-fs",
+    "scope": "@types",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/@types/mock-fs/-/mock-fs-4.10.0.tgz",
+  "_shasum": "460061b186993d76856f669d5317cda8a007c24b",
+  "_spec": "@types/mock-fs",
+  "_where": "/Users/prakashraman/Me/Development/write-lite",
+  "bugs": {
+    "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Wim Looman",
+      "url": "https://github.com/Nemo157"
+    },
+    {
+      "name": "Qubo",
+      "url": "https://github.com/tkqubo"
+    },
+    {
+      "name": "Porama Ruengrairatanaroj",
+      "url": "https://github.com/Seally"
+    }
+  ],
+  "dependencies": {
+    "@types/node": "*"
+  },
+  "deprecated": false,
+  "description": "TypeScript definitions for mock-fs",
+  "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped#readme",
+  "license": "MIT",
+  "main": "",
+  "name": "@types/mock-fs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "directory": "types/mock-fs"
+  },
+  "scripts": {},
+  "typeScriptVersion": "2.0",
+  "types": "index",
+  "typesPublisherContentHash": "b8024da3fb6cf8383a733fba3b37f8f3a4189a6fed98ab6d5b43d673ce048dc9",
+  "version": "4.10.0"
+}

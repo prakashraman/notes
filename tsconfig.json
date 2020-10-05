@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "baseUrl": "./",
+    "paths": {
+      "mock-fs": ["@types/mock-fs"]
+    }
   }
 }

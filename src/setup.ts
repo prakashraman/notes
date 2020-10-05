@@ -41,8 +41,7 @@ const setup = (): void => {
   log.blue("Looking for existing configuration ...");
 
   if (isConfigurationPresent()) {
-    log.success("Configuration is present. Shall leave things as is ...");
-    return;
+    throw new Error("Configuration is present. Shall leave things as is ...");
   }
 
   log.blue(

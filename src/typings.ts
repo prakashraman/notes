@@ -37,7 +37,7 @@ export type INote = Note & {
 };
 
 /**
- * Manifest type for the public interfcae
+ * Manifest type for the public interface
  */
 export type IManifest = Pick<Manifest, "createdAt"> & {
   notes: INote[];
