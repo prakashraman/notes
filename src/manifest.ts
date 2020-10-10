@@ -1,7 +1,7 @@
 import { writeFile, readFileSync, writeFileSync } from "fs";
 
 import manifestTemplate from "./config/templates/manifest";
-import { MANIFEST_PATH } from "./config/constants";
+import { MANIFEST_PATH, CONTENTS_PATH } from "./config/constants";
 import { log, getAbsolutePath } from "./helpers";
 import { Note, Manifest, INote, IManifest } from "./typings";
 
@@ -42,6 +42,16 @@ const getManifest = (): Manifest => {
   });
 
   return JSON.parse(data) as Manifest;
+};
+
+/**
+ * Creates the header and footer markdown files
+ */
+const setupHeaderAndFooter = (): void => {
+  log.blue("Setting up header and footer markdown files");
+  writeFileSync(getAbsolutePath(`${CONTENTS_PATH}/header.md`), "");
+  writeFileSync(getAbsolutePath(`${CONTENTS_PATH}/footer.md`), "");
+  log.success("Successfully created header and footer markdown files ...");
 };
 
 /**
@@ -108,4 +118,5 @@ export {
   getNotes,
   getNote,
   getIManifest,
+  setupHeaderAndFooter,
 };

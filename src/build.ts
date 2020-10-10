@@ -10,8 +10,20 @@ import * as path from "path";
 
 import { log, getAbsolutePath } from "./helpers";
 import { getIManifest } from "./manifest";
-import { DIST_PATH, DIST_NOTES_PATH, IMANIFEST_PATH } from "./config/constants";
+import {
+  DIST_PATH,
+  DIST_NOTES_PATH,
+  IMANIFEST_PATH,
+  DIST_FULL_NOTES_PATH,
+} from "./config/constants";
 import { Note } from "./typings";
+import * as Handlebars from "handlebars";
+
+const LAYOUT_TEMPLATE = Handlebars.compile(
+  readFileSync(`${__dirname}/config/templates/layout.hbs`, {
+    encoding: "utf-8",
+  })
+);
 
 /**
  * Cleans the dist folder of all remnants
@@ -51,17 +63,23 @@ const writeIManifest = () => {
  * @param {Note} note
  */
 const writeHTMLNote = (note: Note) => {
-  log.blue(`Converting markdown to HTML for ${note.path} ...`);
-
   const md = readFileSync(getAbsolutePath(note.path), { encoding: "utf-8" });
   const html = new showdown.Converter().makeHtml(md);
 
   log.success(`Successfully converted to HTML`);
 
-  const filePath = `${DIST_NOTES_PATH}/${path.parse(note.path).name}.html`;
+  const filename = `${path.parse(note.path).name}.html`;
+  const filePath = `${DIST_NOTES_PATH}/${filename}`;
+  const fullFilePath = `${DIST_FULL_NOTES_PATH}/${filename}`;
+  const fullHtml = LAYOUT_TEMPLATE({
+    title: "this is the title",
+    end: "ending",
+    content: html,
+  });
 
-  log.blue(`Writing HTML file ${filePath} ...`);
   writeFileSync(getAbsolutePath(filePath), html);
+  writeFileSync(getAbsolutePath(fullFilePath), fullHtml);
+
   log.success(`Successfully create HTML file at ${filePath} ...`);
 };
 
@@ -83,7 +101,8 @@ const build = () => {
   clean();
 
   log.blue("Building notes\nCreating build folder");
-  mkdirSync(getAbsolutePath(DIST_NOTES_PATH), { recursive: true });
+  // This creates both the notes and notes/full folders
+  mkdirSync(getAbsolutePath(DIST_FULL_NOTES_PATH), { recursive: true });
   log.success(`Created build folder at ${DIST_PATH} ...`);
 
   writeIManifest();

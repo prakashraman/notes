@@ -1,19 +1,14 @@
-import { describe, it, before, after } from "mocha";
-import { readdirSync, existsSync } from "fs";
+import { describe, it, after } from "mocha";
+import { existsSync, readdirSync } from "fs";
 import { expect } from "chai";
 import { stub } from "sinon";
 import * as mock from "mock-fs";
 import * as path from "path";
 
 import { setup } from "../src/setup";
+import { CONTENTS_PATH, MANIFEST_PATH } from "../src/config/constants";
+import { getManifest, setupHeaderAndFooter } from "../src/manifest";
 import { getAbsolutePath } from "../src/helpers";
-import {
-  CONTENTS_PATH,
-  ROOT_PATH,
-  MANIFEST_PATH,
-} from "../src/config/constants";
-import { getManifest } from "../src/manifest";
-import { magentaBright } from "chalk";
 
 describe("Write Lite", () => {
   const consoleStub = stub(console, "log");

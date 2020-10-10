@@ -2,7 +2,7 @@ import { existsSync, mkdirSync } from "fs";
 
 import { log } from "./helpers";
 import * as constants from "./config/constants";
-import { init as initManifest } from "./manifest";
+import { init as initManifest, setupHeaderAndFooter } from "./manifest";
 
 /**
  * Determines whether a configuration is present. Looks for the folder structures and manifest.json
@@ -20,7 +20,7 @@ const isConfigurationPresent = (): boolean => {
 };
 
 /**
- * Initialise the system with relevant folders and configuration files
+ * Initialize the system with relevant folders and configuration files
  *
  */
 const init = (): void => {
@@ -28,6 +28,7 @@ const init = (): void => {
   log.success(`Created 'contents' folder at ${constants.CONTENTS_PATH}`);
 
   initManifest();
+  setupHeaderAndFooter();
 
   mkdirSync(constants.NOTES_PATH);
   log.success(`Created 'notes' folder at ${constants.NOTES_PATH}`);
