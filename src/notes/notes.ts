@@ -54,15 +54,14 @@ const setupFreshNote = (title: string, author: string): Note => {
     );
     return;
   }
-
-  const handle = slugify(title.toLowerCase(), { strict: true });
+  const id = getNextNoteId();
+  const handle = slugify(`${id}-${title.toLowerCase()}`, { strict: true });
   const path = `${setupFolderForNote()}/${handle}.md`;
 
   log.blue(`Creating markdown file at ${path} ...`);
   writeFileSync(getAbsolutePath(path), "");
   log.success(`New file created at: ${path}`);
 
-  const id = getNextNoteId();
   const note: Note = {
     id,
     title,
