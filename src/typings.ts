@@ -33,7 +33,10 @@ export type Manifest = {
  * Note type for the public interface
  */
 export type INote = Note & {
+  /** Summary of the note. Ideally the first para or first 200 words */
   summary: string;
+  /** Relative path of the full article */
+  relativePath: string;
 };
 
 /**

@@ -4,6 +4,7 @@ import {
   mkdirSync,
   writeFileSync,
   readFileSync,
+  copyFileSync,
 } from "fs";
 import * as showdown from "showdown";
 import * as path from "path";
@@ -21,7 +22,7 @@ import {
   IMANIFEST_PATH,
   DIST_FULL_NOTES_PATH,
 } from "./config/constants";
-import { Note } from "./typings";
+import { Note, INote } from "./typings";
 
 const TEMPLATE = {
   layout: Handlebars.compile(
@@ -99,10 +100,11 @@ const writeHTMLNote = (note: Note) => {
   const filePath = `${DIST_NOTES_PATH}/${filename}`;
   const fullFilePath = `${DIST_FULL_NOTES_PATH}/${filename}`;
   const fullHtml = TEMPLATE.layout({
-    title: "title",
+    title: note.title,
     header: HTML.header,
     footer: HTML.footer,
     content: html,
+    cssPath: "../../main.css",
   });
 
   writeFileSync(getAbsolutePath(filePath), html);
@@ -125,15 +127,27 @@ const writeHomePage = () => {
   const notes = getIManifest().notes.map((note) => ({
     title: note.title,
     content: stripHtml(getNoteHtml(note)).result.slice(0, 100),
+    url: note.relativePath,
   }));
   const html = TEMPLATE.layout({
     header: HTML.header,
     footer: HTML.footer,
+    cssPath: "./main.css",
     content: TEMPLATE.notes({ notes }),
   });
 
   writeFileSync(getAbsolutePath(DIST_HOMEPAGE_PATH), html);
   log.success("Successfully created homepage ...");
+};
+
+/**
+ * Write the CSS file to the dist folder
+ */
+const writeCssFile = () => {
+  copyFileSync(
+    `${__dirname}/config/templates/main.css`,
+    `${DIST_PATH}/main.css`
+  );
 };
 
 /**
@@ -150,6 +164,7 @@ const build = () => {
   mkdirSync(getAbsolutePath(DIST_FULL_NOTES_PATH), { recursive: true });
   log.success(`Created build folder at ${DIST_PATH} ...`);
 
+  writeCssFile();
   writeIManifest();
   writeHomePage();
   writeHTMLNotes();

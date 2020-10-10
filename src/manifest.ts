@@ -97,6 +97,7 @@ const getINotes = (): INote[] => {
 
   return notes.map<INote>((note) => ({
     ...note,
+    relativePath: `./notes/full/${note.handle}.html`,
     summary: "",
   }));
 };

@@ -1,5 +1,7 @@
-all notes
 {{#each notes}}
-  <h3>{{title}}</h3>
-  <p>{{content}}</p>
+  <div class='content is-medium'>
+    <h3 class='title is-3'>{{title}}</h3>
+    <p>{{content}}</p>
+    <p class='title is-6'><a href='{{url}}'>Read full note</a></p>
+  </div>
 {{/each}}
