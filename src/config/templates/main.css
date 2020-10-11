@@ -78,12 +78,16 @@ article small.date {
   color: #444444;
 }
 
+.notes article:first-child {
+  margin-top: 80px;
+}
+
 header p {
   margin: 0;
 }
 
 header {
-  padding: 40px 0;
+  padding: 40px 0 80px;
   border-bottom: 1px solid #ccc;
 }
 

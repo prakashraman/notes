@@ -1,10 +1,12 @@
-{{#each notes}}
-  <article>
-    <div class="content-wrapper">
-      <h2>{{title}}</h2>
-      <small class='date'>December 12th, 2019</small>
-      <p>{{content}}</p>
-      <p><a href='{{url}}'>Read more</a></p>
-    </div>
-  </article>
-{{/each}}
+<div class='notes'>
+  {{#each notes}}
+    <article>
+      <div class="content-wrapper">
+        <h2>{{title}}</h2>
+        <small class='date'>December 12th, 2019 &middot; Tech, C#</small>
+        <p>{{content}}</p>
+        <p><a href='{{url}}'>Read more</a></p>
+      </div>
+    </article>
+  {{/each}}  
+</div>
