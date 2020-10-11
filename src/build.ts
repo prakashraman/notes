@@ -126,7 +126,7 @@ const writeHTMLNotes = () => {
 const writeHomePage = () => {
   const notes = getIManifest().notes.map((note) => ({
     title: note.title,
-    content: stripHtml(getNoteHtml(note)).result.slice(0, 100),
+    content: stripHtml(getNoteHtml(note)).result.slice(0, 1000),
     url: note.relativePath,
   }));
   const html = TEMPLATE.layout({
@@ -154,7 +154,6 @@ const writeCssFile = () => {
  * Entry point to the build process. Cleans the build folder and recreates it.
  * Ideally should be run on the CD flow and build folder is to be
  * pushed to a publicly accessible server
- *
  */
 const build = () => {
   clean();

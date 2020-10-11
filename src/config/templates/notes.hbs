@@ -1,7 +1,10 @@
 {{#each notes}}
-  <div class='content is-medium'>
-    <h3 class='title is-3'>{{title}}</h3>
-    <p>{{content}}</p>
-    <p class='title is-6'><a href='{{url}}'>Read full note</a></p>
-  </div>
+  <article>
+    <div class="content-wrapper">
+      <h2>{{title}}</h2>
+      <small class='date'>December 12th, 2019</small>
+      <p>{{content}}</p>
+      <p><a href='{{url}}'>Read more</a></p>
+    </div>
+  </article>
 {{/each}}
