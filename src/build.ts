@@ -25,18 +25,37 @@ import {
 import { Note, INote } from "./typings";
 
 const TEMPLATE = {
+  /** The main layout template. Used in the home page and in the article page */
   layout: Handlebars.compile(
     readFileSync(`${__dirname}/config/templates/layout.hbs`, {
       encoding: "utf-8",
     })
   ),
+
+  /** The back template. Dipslayed instead of the standard header in the article page. */
+  back: Handlebars.compile(
+    readFileSync(`${__dirname}/config/templates/back.hbs`, {
+      encoding: "utf-8",
+    })
+  ),
+
+  /** The layout which iterates over the notes. This layout is used in the homepage */
   notes: Handlebars.compile(
     readFileSync(`${__dirname}/config/templates/notes.hbs`, {
       encoding: "utf-8",
     })
   ),
+
+  /** The layout of the article page */
+  note: Handlebars.compile(
+    readFileSync(`${__dirname}/config/templates/note.hbs`, {
+      encoding: "utf-8",
+    })
+  ),
 };
+
 const SHOWDOWN_CONVERTER = new showdown.Converter();
+
 const HTML = {
   header: SHOWDOWN_CONVERTER.makeHtml(
     readFileSync(getAbsolutePath(HEADER_PATH), { encoding: "utf-8" })
@@ -101,9 +120,9 @@ const writeHTMLNote = (note: Note) => {
   const fullFilePath = `${DIST_FULL_NOTES_PATH}/${filename}`;
   const fullHtml = TEMPLATE.layout({
     title: note.title,
-    header: HTML.header,
+    header: TEMPLATE.back({}),
     footer: HTML.footer,
-    content: html,
+    content: TEMPLATE.note({ title: note.title, content: html }),
     cssPath: "../../main.css",
   });
 
