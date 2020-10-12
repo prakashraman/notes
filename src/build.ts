@@ -9,7 +9,8 @@ import {
 import * as showdown from "showdown";
 import * as path from "path";
 import * as Handlebars from "handlebars";
-import * as stripHtml from "string-strip-html";
+import stripHtml from "string-strip-html";
+import moment from "moment";
 
 import { log, getAbsolutePath } from "./helpers";
 import { getIManifest } from "./manifest";
@@ -22,7 +23,7 @@ import {
   IMANIFEST_PATH,
   DIST_FULL_NOTES_PATH,
 } from "./config/constants";
-import { Note, INote } from "./typings";
+import { Note } from "./typings";
 
 const TEMPLATE = {
   /** The main layout template. Used in the home page and in the article page */
@@ -67,7 +68,6 @@ const HTML = {
 
 /**
  * Cleans the dist folder of all remnants
- *
  */
 const clean = () => {
   log.blue("Attempting to clean build");
@@ -83,7 +83,6 @@ const clean = () => {
 
 /**
  * Write a fresh IManifest file. Expected to be consumed via HTTP
- *
  */
 const writeIManifest = () => {
   const iManifest = getIManifest();
@@ -122,7 +121,11 @@ const writeHTMLNote = (note: Note) => {
     title: note.title,
     header: TEMPLATE.back({}),
     footer: HTML.footer,
-    content: TEMPLATE.note({ title: note.title, content: html }),
+    content: TEMPLATE.note({
+      title: note.title,
+      content: html,
+      publishedAt: moment(note.publishedAt).format("MMMM Do YYYY"),
+    }),
     cssPath: "../../main.css",
   });
 
@@ -146,6 +149,7 @@ const writeHomePage = () => {
   const notes = getIManifest().notes.map((note) => ({
     title: note.title,
     content: stripHtml(getNoteHtml(note)).result.slice(0, 1000),
+    publishedAt: moment(note.publishedAt).format("MMMM Do YYYY"),
     url: note.relativePath,
   }));
   const html = TEMPLATE.layout({
