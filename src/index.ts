@@ -1,39 +1,33 @@
-import * as inquirer from "inquirer";
-import * as figlet from "figlet";
+import figlet from "figlet";
+import { program } from "commander";
 
-import { setup } from "./setup";
-import { createNote, listNotes } from "./notes/notes";
-import { log } from "./helpers";
+import { setup } from "./lib/setup";
+import { createNote, listNotes } from "./lib/notes/notes";
+import { build } from "./lib/build";
 
-/**
- * Entry method of the library. It asks all the right questions :)
- *
- */
-const start = () => {
-  inquirer
-    .prompt({
-      name: "choice",
-      message: "What would you like to do?",
-      type: "list",
-      choices: [
-        { value: "setup", name: "Setup lite blog" },
-        { value: "new", name: "Create note" },
-        { value: "list", name: "List notes" },
-        { value: "build", name: "Build HTML content" },
-      ],
-    })
-    .then((answer) => {
-      if (answer.choice === "setup") setup();
-      else if (answer.choice === "list") listNotes();
-      else if (answer.choice === "new") createNote();
-    });
-};
+console.log(figlet.textSync("notes"));
 
-figlet("Write lite", (er, data) => {
-  if (er) {
-    return log.blue("write-lite");
-  }
+program
+  .command("setup")
+  .description(
+    "sets up the structure. You don't need to run this more than once"
+  )
+  .action(setup);
 
-  log.log(data);
-  start();
-});
+program
+  .command("notes:create")
+  .description("creates a new note")
+  .action(createNote);
+
+program
+  .command("notes:list")
+  .description("list all the notes")
+  .action(listNotes);
+
+program
+  .command("notes:publish")
+  .alias("publish")
+  .description("publishes the notes to dist folder")
+  .action(build);
+
+program.parse(process.argv);

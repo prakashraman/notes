@@ -1,0 +1,14 @@
+{
+  "name": "notes-example-app",
+  "version": "1.0.0",
+  "description": "Example application for @prakashraman/notes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prakash Raman <prakash.raman.ka@gmail.com> (http://prakashraman.info)",
+  "license": "ISC",
+  "dependencies": {
+    "@prakashraman/notes": "file:.."
+  }
+}

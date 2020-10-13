@@ -1,0 +1,12 @@
+<div class='notes'>
+  {{#each notes}}
+    <article>
+      <div class="content-wrapper">
+        <h2>{{title}}</h2>
+        <small class='date'>{{publishedAt}}</small>
+        <p>{{content}}</p>
+        <p><a href='{{url}}'>read more</a></p>
+      </div>
+    </article>
+  {{/each}}  
+</div>
