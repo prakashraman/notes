@@ -9,7 +9,7 @@ import { setup } from "../src/setup";
 import { MANIFEST_PATH } from "../src/config/constants";
 import { getManifest } from "../src/manifest";
 
-describe("Write Lite", () => {
+describe("@prakashraman/notes", () => {
   const consoleStub = stub(console, "log");
 
   beforeEach(() => {
