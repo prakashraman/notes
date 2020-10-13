@@ -1,5 +1,5 @@
 {
-  "name": "notes",
+  "name": "@prakashraman/notes",
   "version": "0.0.13",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "note": "npx ts-node scripts/note.ts",
     "build": "npx ts-node scripts/build.ts"
   },
-  "author": "Prakash Raman",
+  "author": "Prakash Raman <prakash.raman.ka@gmail.com> (http://prakashraman.info)",
   "license": "GNU GPLv3",
   "dependencies": {
     "@types/figlet": "^1.2.0",
