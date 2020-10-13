@@ -14,7 +14,7 @@
     "dev:build": "npx ts-node src/scripts/build.ts"
   },
   "bin": {
-    "notes": "./build/index.js"
+    "pr-notes": "./build/index.js"
   },
   "author": "Prakash Raman <prakash.raman.ka@gmail.com> (http://prakashraman.info)",
   "license": "GNU GPLv3",

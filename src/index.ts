@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import figlet from "figlet";
 import { program } from "commander";
 

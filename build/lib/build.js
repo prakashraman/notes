@@ -52,8 +52,12 @@ var TEMPLATE = {
 };
 var SHOWDOWN_CONVERTER = new showdown.Converter();
 var HTML = {
-    header: SHOWDOWN_CONVERTER.makeHtml(fs_1.readFileSync(helpers_1.getAbsolutePath(constants_1.HEADER_PATH), { encoding: "utf-8" })),
-    footer: SHOWDOWN_CONVERTER.makeHtml(fs_1.readFileSync(helpers_1.getAbsolutePath(constants_1.FOOTER_PATH), { encoding: "utf-8" }))
+    getHeader: function () {
+        return SHOWDOWN_CONVERTER.makeHtml(fs_1.readFileSync(helpers_1.getAbsolutePath(constants_1.HEADER_PATH), { encoding: "utf-8" }));
+    },
+    getFooter: function () {
+        return SHOWDOWN_CONVERTER.makeHtml(fs_1.readFileSync(helpers_1.getAbsolutePath(constants_1.FOOTER_PATH), { encoding: "utf-8" }));
+    }
 };
 /**
  * Cleans the dist folder of all remnants
@@ -100,7 +104,7 @@ var writeHTMLNote = function (note) {
     var fullHtml = TEMPLATE.layout({
         title: note.title,
         header: TEMPLATE.back({}),
-        footer: HTML.footer,
+        footer: HTML.getFooter(),
         content: TEMPLATE.note({
             title: note.title,
             content: html,
@@ -129,8 +133,8 @@ var writeHomePage = function () {
         url: note.relativePath
     }); });
     var html = TEMPLATE.layout({
-        header: HTML.header,
-        footer: HTML.footer,
+        header: HTML.getHeader(),
+        footer: HTML.getFooter(),
         cssPath: "./main.css",
         content: TEMPLATE.notes({ notes: notes })
     });

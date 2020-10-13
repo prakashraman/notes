@@ -58,12 +58,14 @@ const TEMPLATE = {
 const SHOWDOWN_CONVERTER = new showdown.Converter();
 
 const HTML = {
-  header: SHOWDOWN_CONVERTER.makeHtml(
-    readFileSync(getAbsolutePath(HEADER_PATH), { encoding: "utf-8" })
-  ),
-  footer: SHOWDOWN_CONVERTER.makeHtml(
-    readFileSync(getAbsolutePath(FOOTER_PATH), { encoding: "utf-8" })
-  ),
+  getHeader: () =>
+    SHOWDOWN_CONVERTER.makeHtml(
+      readFileSync(getAbsolutePath(HEADER_PATH), { encoding: "utf-8" })
+    ),
+  getFooter: () =>
+    SHOWDOWN_CONVERTER.makeHtml(
+      readFileSync(getAbsolutePath(FOOTER_PATH), { encoding: "utf-8" })
+    ),
 };
 
 /**
@@ -120,7 +122,7 @@ const writeHTMLNote = (note: Note) => {
   const fullHtml = TEMPLATE.layout({
     title: note.title,
     header: TEMPLATE.back({}),
-    footer: HTML.footer,
+    footer: HTML.getFooter(),
     content: TEMPLATE.note({
       title: note.title,
       content: html,
@@ -153,8 +155,8 @@ const writeHomePage = () => {
     url: note.relativePath,
   }));
   const html = TEMPLATE.layout({
-    header: HTML.header,
-    footer: HTML.footer,
+    header: HTML.getHeader(),
+    footer: HTML.getFooter(),
     cssPath: "./main.css",
     content: TEMPLATE.notes({ notes }),
   });
