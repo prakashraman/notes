@@ -10,6 +10,7 @@ var setup_1 = require("./lib/setup");
 var notes_1 = require("./lib/notes/notes");
 var build_1 = require("./lib/build");
 console.log(figlet_1["default"].textSync("notes"));
+commander_1.program.name("npx pr-notes").usage("command");
 commander_1.program
     .command("setup")
     .description("sets up the structure. You don't need to run this more than once")

@@ -9,6 +9,8 @@ import { build } from "./lib/build";
 
 console.log(figlet.textSync("notes"));
 
+program.name("npx pr-notes").usage("command");
+
 program
   .command("setup")
   .description(
