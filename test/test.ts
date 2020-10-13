@@ -5,9 +5,9 @@ import { stub } from "sinon";
 import mock from "mock-fs";
 import * as path from "path";
 
-import { setup } from "../src/setup";
-import { MANIFEST_PATH } from "../src/config/constants";
-import { getManifest } from "../src/manifest";
+import { setup } from "../src/lib/setup";
+import { MANIFEST_PATH } from "../src/lib/config/constants";
+import { getManifest } from "../src/lib/manifest";
 
 describe("@prakashraman/notes", () => {
   const consoleStub = stub(console, "log");
