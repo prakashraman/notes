@@ -2,7 +2,7 @@
   "name": "@prakashraman/notes",
   "version": "0.0.13",
   "description": "",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "test": "npx mocha --require ts-node/register 'test/test.ts'",
     "coverage": "npx nyc mocha --require ts-node/register 'test/test.ts'",
@@ -12,6 +12,9 @@
     "dev:setup": "npx ts-node src/scripts/setup.ts",
     "dev:note": "npx ts-node src/scripts/note.ts",
     "dev:build": "npx ts-node src/scripts/build.ts"
+  },
+  "bin": {
+    "notes": "./build/index.js"
   },
   "author": "Prakash Raman <prakash.raman.ka@gmail.com> (http://prakashraman.info)",
   "license": "GNU GPLv3",
