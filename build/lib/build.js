@@ -22,12 +22,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.build = void 0;
+exports.getNoteHtml = exports.build = void 0;
 var fs_1 = require("fs");
 var showdown = __importStar(require("showdown"));
 var path = __importStar(require("path"));
 var Handlebars = __importStar(require("handlebars"));
-var string_strip_html_1 = __importDefault(require("string-strip-html"));
 var moment_1 = __importDefault(require("moment"));
 var helpers_1 = require("./helpers");
 var manifest_1 = require("./manifest");
@@ -90,8 +89,9 @@ var getNoteHtml = function (note) {
     var md = fs_1.readFileSync(helpers_1.getAbsolutePath(note.path), { encoding: "utf-8" });
     return SHOWDOWN_CONVERTER.makeHtml(md);
 };
+exports.getNoteHtml = getNoteHtml;
 /**
- * Converts the note's mardown into HTML and write to a file in
+ * Converts the note's markdown into HTML and write to a file in
  * build folder
  *
  * @param {Note} note
@@ -128,7 +128,7 @@ var writeHTMLNotes = function () {
 var writeHomePage = function () {
     var notes = manifest_1.getIManifest().notes.map(function (note) { return ({
         title: note.title,
-        content: string_strip_html_1["default"](getNoteHtml(note)).result.slice(0, 1000),
+        content: note.summary,
         publishedAt: moment_1["default"](note.publishedAt).format("MMMM Do YYYY"),
         url: note.relativePath
     }); });

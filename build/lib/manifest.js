@@ -19,6 +19,8 @@ var fs_1 = require("fs");
 var manifest_1 = __importDefault(require("./config/templates/manifest"));
 var constants_1 = require("./config/constants");
 var helpers_1 = require("./helpers");
+var build_1 = require("./build");
+var string_strip_html_1 = __importDefault(require("string-strip-html"));
 /**
  * Creates a first empty manifest
  *
@@ -97,7 +99,7 @@ exports.getNextNoteId = getNextNoteId;
 /** Interface methods */
 var getINotes = function () {
     var notes = getManifest().notes;
-    return notes.map(function (note) { return (__assign(__assign({}, note), { relativePath: "./notes/full/" + note.handle + ".html", summary: "" })); });
+    return notes.map(function (note) { return (__assign(__assign({}, note), { relativePath: "./notes/full/" + note.handle + ".html", summary: string_strip_html_1["default"](build_1.getNoteHtml(note)).result.slice(0, constants_1.SUMMARY_STRING_LENGTH) })); });
 };
 var getIManifest = function () {
     var manifest = getManifest();

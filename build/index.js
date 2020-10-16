@@ -9,8 +9,12 @@ var commander_1 = require("commander");
 var setup_1 = require("./lib/setup");
 var notes_1 = require("./lib/notes/notes");
 var build_1 = require("./lib/build");
+/** The big banner */
 console.log(figlet_1["default"].textSync("notes"));
 commander_1.program.name("npx pr-notes").usage("command");
+/**
+ * All the commands of the program
+ */
 commander_1.program
     .command("setup")
     .description("sets up the structure. You don't need to run this more than once")
@@ -24,8 +28,7 @@ commander_1.program
     .description("list all the notes")
     .action(notes_1.listNotes);
 commander_1.program
-    .command("notes:publish")
-    .alias("publish")
+    .command("publish")
     .description("publishes the notes to dist folder")
     .action(build_1.build);
 commander_1.program.parse(process.argv);
