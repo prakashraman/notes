@@ -12,3 +12,5 @@ export const DIST_HOMEPAGE_PATH: string = `${DIST_PATH}/index.html`;
 export const DIST_NOTES_PATH: string = `${DIST_PATH}/notes`;
 export const DIST_FULL_NOTES_PATH: string = `${DIST_NOTES_PATH}/full`;
 export const IMANIFEST_PATH: string = `${DIST_PATH}/imanifest.json`;
+
+export const SUMMARY_STRING_LENGTH = 360;

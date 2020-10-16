@@ -7,10 +7,14 @@ import { setup } from "./lib/setup";
 import { createNote, listNotes } from "./lib/notes/notes";
 import { build } from "./lib/build";
 
+/** The big banner */
 console.log(figlet.textSync("notes"));
 
 program.name("npx pr-notes").usage("command");
 
+/**
+ * All the commands of the program
+ */
 program
   .command("setup")
   .description(
@@ -29,8 +33,7 @@ program
   .action(listNotes);
 
 program
-  .command("notes:publish")
-  .alias("publish")
+  .command("publish")
   .description("publishes the notes to dist folder")
   .action(build);
 

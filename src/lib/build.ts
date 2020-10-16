@@ -105,11 +105,12 @@ const writeIManifest = () => {
  */
 const getNoteHtml = (note: Note): string => {
   const md = readFileSync(getAbsolutePath(note.path), { encoding: "utf-8" });
+
   return SHOWDOWN_CONVERTER.makeHtml(md);
 };
 
 /**
- * Converts the note's mardown into HTML and write to a file in
+ * Converts the note's markdown into HTML and write to a file in
  * build folder
  *
  * @param {Note} note
@@ -150,7 +151,7 @@ const writeHTMLNotes = () => {
 const writeHomePage = () => {
   const notes = getIManifest().notes.map((note) => ({
     title: note.title,
-    content: stripHtml(getNoteHtml(note)).result.slice(0, 1000),
+    content: note.summary,
     publishedAt: moment(note.publishedAt).format("MMMM Do YYYY"),
     url: note.relativePath,
   }));
@@ -194,4 +195,4 @@ const build = () => {
   writeHTMLNotes();
 };
 
-export { build };
+export { build, getNoteHtml };

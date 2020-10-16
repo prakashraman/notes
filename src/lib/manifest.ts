@@ -1,9 +1,16 @@
-import { writeFile, readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 
 import manifestTemplate from "./config/templates/manifest";
-import { MANIFEST_PATH, CONTENTS_PATH } from "./config/constants";
+import {
+  MANIFEST_PATH,
+  CONTENTS_PATH,
+  SUMMARY_STRING_LENGTH,
+} from "./config/constants";
 import { log, getAbsolutePath } from "./helpers";
 import { Note, Manifest, INote, IManifest } from "./typings";
+import { getNoteHtml } from "./build";
+import stripHtml from "string-strip-html";
+import { textSpanIntersectsWithTextSpan } from "typescript";
 
 /**
  * Creates a first empty manifest
@@ -98,7 +105,10 @@ const getINotes = (): INote[] => {
   return notes.map<INote>((note) => ({
     ...note,
     relativePath: `./notes/full/${note.handle}.html`,
-    summary: "",
+    summary: stripHtml(getNoteHtml(note)).result.slice(
+      0,
+      SUMMARY_STRING_LENGTH
+    ),
   }));
 };
 
