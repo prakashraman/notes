@@ -31,7 +31,3 @@ jobs:
           echo //registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }} > .npmrc
           echo access=public >> .npmrc
       - run: npm publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
-      - run: echo "Finsished at ${{ github.sha }}"
