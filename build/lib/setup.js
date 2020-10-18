@@ -34,6 +34,7 @@ var isConfigurationPresent = function () {
         constants.CONTENTS_PATH,
         constants.MANIFEST_PATH,
         constants.NOTES_PATH,
+        constants.HEAD_PATH,
     ]
         .map(function (path) { return fs_1.existsSync(path); })
         .includes(true);

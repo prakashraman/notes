@@ -56,6 +56,9 @@ var HTML = {
     },
     getFooter: function () {
         return SHOWDOWN_CONVERTER.makeHtml(fs_1.readFileSync(helpers_1.getAbsolutePath(constants_1.FOOTER_PATH), { encoding: "utf-8" }));
+    },
+    getHead: function () {
+        return fs_1.readFileSync(helpers_1.getAbsolutePath(constants_1.HEAD_PATH), { encoding: "utf-8" });
     }
 };
 /**
@@ -103,6 +106,7 @@ var writeHTMLNote = function (note) {
     var fullFilePath = constants_1.DIST_FULL_NOTES_PATH + "/" + filename;
     var fullHtml = TEMPLATE.layout({
         title: note.title,
+        head: HTML.getHead(),
         header: TEMPLATE.back({}),
         footer: HTML.getFooter(),
         content: TEMPLATE.note({
@@ -133,6 +137,7 @@ var writeHomePage = function () {
         url: note.relativePath
     }); });
     var html = TEMPLATE.layout({
+        head: HTML.getHead(),
         header: HTML.getHeader(),
         footer: HTML.getFooter(),
         cssPath: "./main.css",

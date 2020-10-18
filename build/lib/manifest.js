@@ -59,6 +59,7 @@ var setupHeaderAndFooter = function () {
     helpers_1.log.blue("Setting up header and footer markdown files");
     fs_1.writeFileSync(helpers_1.getAbsolutePath(constants_1.CONTENTS_PATH + "/header.md"), "");
     fs_1.writeFileSync(helpers_1.getAbsolutePath(constants_1.CONTENTS_PATH + "/footer.md"), "");
+    fs_1.writeFileSync(helpers_1.getAbsolutePath(constants_1.HEAD_PATH), "");
     helpers_1.log.success("Successfully created header and footer markdown files ...");
 };
 exports.setupHeaderAndFooter = setupHeaderAndFooter;
