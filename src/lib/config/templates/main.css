@@ -105,3 +105,22 @@ footer {
   margin: 0px auto;
   padding: 0 16px;
 }
+
+@media all and (max-width: 699px) {
+  header,
+  footer {
+    padding: 16px 0;
+  }
+
+  footer p {
+    margin: 0;
+  }
+
+  .notes article:first-child {
+    margin-top: 40px;
+  }
+
+  .notes article:first-child h2 {
+    margin-top: 0;
+  }
+}

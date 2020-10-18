@@ -105,3 +105,9 @@ footer {
   margin: 0px auto;
   padding: 0 16px;
 }
+
+@media all and (max-width: 699px) {
+  header {
+    padding: 10px;
+  }
+}
