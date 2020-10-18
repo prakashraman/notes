@@ -27,7 +27,7 @@ jobs:
           CI: true
       - run: npm run build
       - name: Setup .npmrc
-      - run: |
+        run: |
           echo //registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }} > .npmrc
           echo access=public >> .npmrc
       - run: npm publish
