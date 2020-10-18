@@ -6,6 +6,7 @@ export const MANIFEST_PATH: string = `${CONTENTS_PATH}/${MANIFEST}`;
 export const HEADER_PATH: string = `${CONTENTS_PATH}/header.md`;
 export const FOOTER_PATH: string = `${CONTENTS_PATH}/footer.md`;
 export const NOTES_PATH: string = `${CONTENTS_PATH}/notes`;
+export const HEAD_PATH: string = `${CONTENTS_PATH}/head.html`;
 
 export const DIST_PATH: string = `dist`;
 export const DIST_HOMEPAGE_PATH: string = `${DIST_PATH}/index.html`;

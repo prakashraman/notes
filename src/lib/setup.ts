@@ -14,6 +14,7 @@ const isConfigurationPresent = (): boolean => {
     constants.CONTENTS_PATH,
     constants.MANIFEST_PATH,
     constants.NOTES_PATH,
+    constants.HEAD_PATH,
   ]
     .map((path) => existsSync(path))
     .includes(true);

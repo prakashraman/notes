@@ -9,7 +9,6 @@ import {
 import * as showdown from "showdown";
 import * as path from "path";
 import * as Handlebars from "handlebars";
-import stripHtml from "string-strip-html";
 import moment from "moment";
 
 import { log, getAbsolutePath } from "./helpers";
@@ -22,6 +21,7 @@ import {
   DIST_NOTES_PATH,
   IMANIFEST_PATH,
   DIST_FULL_NOTES_PATH,
+  HEAD_PATH,
 } from "./config/constants";
 import { Note } from "./typings";
 
@@ -66,6 +66,8 @@ const HTML = {
     SHOWDOWN_CONVERTER.makeHtml(
       readFileSync(getAbsolutePath(FOOTER_PATH), { encoding: "utf-8" })
     ),
+  getHead: () =>
+    readFileSync(getAbsolutePath(HEAD_PATH), { encoding: "utf-8" }),
 };
 
 /**
@@ -122,6 +124,7 @@ const writeHTMLNote = (note: Note) => {
   const fullFilePath = `${DIST_FULL_NOTES_PATH}/${filename}`;
   const fullHtml = TEMPLATE.layout({
     title: note.title,
+    head: HTML.getHead(),
     header: TEMPLATE.back({}),
     footer: HTML.getFooter(),
     content: TEMPLATE.note({
@@ -156,6 +159,7 @@ const writeHomePage = () => {
     url: note.relativePath,
   }));
   const html = TEMPLATE.layout({
+    head: HTML.getHead(),
     header: HTML.getHeader(),
     footer: HTML.getFooter(),
     cssPath: "./main.css",

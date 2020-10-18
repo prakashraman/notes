@@ -5,12 +5,12 @@ import {
   MANIFEST_PATH,
   CONTENTS_PATH,
   SUMMARY_STRING_LENGTH,
+  HEAD_PATH,
 } from "./config/constants";
 import { log, getAbsolutePath } from "./helpers";
 import { Note, Manifest, INote, IManifest } from "./typings";
 import { getNoteHtml } from "./build";
 import stripHtml from "string-strip-html";
-import { textSpanIntersectsWithTextSpan } from "typescript";
 
 /**
  * Creates a first empty manifest
@@ -58,6 +58,7 @@ const setupHeaderAndFooter = (): void => {
   log.blue("Setting up header and footer markdown files");
   writeFileSync(getAbsolutePath(`${CONTENTS_PATH}/header.md`), "");
   writeFileSync(getAbsolutePath(`${CONTENTS_PATH}/footer.md`), "");
+  writeFileSync(getAbsolutePath(HEAD_PATH), "");
   log.success("Successfully created header and footer markdown files ...");
 };
 
