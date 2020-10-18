@@ -22,17 +22,17 @@ There are few commands which allow complete control over the blog. Namely, `setu
  | | | | (_) | ||  __/\__ \
  |_| |_|\___/ \__\___||___/
 
-Usage: index [options] [command]
+Usage: npx pr-notes command
 
 Options:
-  -h, --help             display help for command
+  -h, --help      display help for command
 
 Commands:
-  setup                  sets up the structure. You don't need to run this more than once
-  notes:create           creates a new note
-  notes:list             list all the notes
-  notes:publish|publish  publishes the notes to dist folder
-  help [command]         display help for command
+  setup           sets up the structure. You don't need to run this more than once
+  notes:create    creates a new note
+  notes:list      list all the notes
+  publish         publishes the notes to dist folder
+  help [command]  display help for command
 ```
 
 ### 1. Setup the blog
