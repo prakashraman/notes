@@ -11,6 +11,7 @@ import { log, getAbsolutePath } from "./helpers";
 import { Note, Manifest, INote, IManifest } from "./typings";
 import { getNoteHtml } from "./build";
 import stripHtml from "string-strip-html";
+import moment from "moment";
 
 /**
  * Creates a first empty manifest
@@ -100,8 +101,15 @@ const getNextNoteId = (): number => {
 
 /** Interface methods */
 
+/**
+ * Returns the INotes from the manifest order by published_at [desc]
+ *
+ * @return {*}  {INote[]}
+ */
 const getINotes = (): INote[] => {
-  const notes = getManifest().notes;
+  const notes = getManifest().notes.sort((a, b) =>
+    moment(b.publishedAt).diff(a.publishedAt)
+  );
 
   return notes.map<INote>((note) => ({
     ...note,
