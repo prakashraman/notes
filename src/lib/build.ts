@@ -5,7 +5,9 @@ import {
   writeFileSync,
   readFileSync,
   copyFileSync,
+  readdirSync,
 } from "fs";
+import cpy from "cpy";
 import * as showdown from "showdown";
 import * as path from "path";
 import * as Handlebars from "handlebars";
@@ -21,6 +23,7 @@ import {
   DIST_NOTES_PATH,
   IMANIFEST_PATH,
   DIST_FULL_NOTES_PATH,
+  PUBLIC_PATH,
   HEAD_PATH,
 } from "./config/constants";
 import { Note } from "./typings";
@@ -183,11 +186,21 @@ const writeCssFile = () => {
 };
 
 /**
+ * Copies the contents of the public folder to the "dist" folder
+ */
+const writePublicFolder = async (): Promise<void> => {
+  await cpy(["**/*"], getAbsolutePath(DIST_PATH), {
+    parents: true,
+    cwd: PUBLIC_PATH,
+  });
+};
+
+/**
  * Entry point to the build process. Cleans the build folder and recreates it.
  * Ideally should be run on the CD flow and build folder is to be
  * pushed to a publicly accessible server
  */
-const build = () => {
+const build = async () => {
   clean();
 
   log.blue("Building notes\nCreating build folder");
@@ -195,6 +208,7 @@ const build = () => {
   mkdirSync(getAbsolutePath(DIST_FULL_NOTES_PATH), { recursive: true });
   log.success(`Created build folder at ${DIST_PATH} ...`);
 
+  writePublicFolder();
   writeCssFile();
   writeIManifest();
   writeHomePage();
