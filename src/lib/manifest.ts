@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync } from "fs";
+import * as inquirer from "inquirer";
 
 import manifestTemplate from "./config/templates/manifest";
 import {
@@ -20,6 +21,7 @@ import moment from "moment";
 const init = (): void => {
   const manifest: Manifest = {
     ...manifestTemplate,
+    title: "",
     createdAt: new Date().toISOString(),
   };
 
@@ -130,6 +132,26 @@ const getIManifest = (): IManifest => {
   };
 };
 
+const setTitle = (): void => {
+  const manifest = getManifest();
+
+  inquirer
+    .prompt({
+      type: "input",
+      name: "title",
+      message: "Title",
+      default: manifest.title,
+    })
+    .then((answers) => {
+      writeManifest({
+        ...manifest,
+        title: answers.title,
+      });
+
+      log.success("Successfully set the new title. Republish to view changes.");
+    });
+};
+
 export {
   init,
   getManifest,
@@ -139,4 +161,5 @@ export {
   getNote,
   getIManifest,
   setupHeaderAndFooter,
+  setTitle,
 };

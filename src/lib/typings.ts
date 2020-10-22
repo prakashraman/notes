@@ -25,6 +25,8 @@ export type Note = {
 export type Manifest = {
   /** List of Notes[] */
   notes: Note[];
+  /** Title of the homepage */
+  title?: string;
   /** Auto-generated timestamp during init */
   createdAt: Date | string;
 };

@@ -8,6 +8,7 @@
     "coverage": "npx nyc mocha --require ts-node/register 'test/test.ts'",
     "build": "npx tsc",
     "postbuild": "npx cpy '**/*' '!**/*.ts' '../build/' --cwd=src --parents",
+    "doc": "npx typedoc --out docs src",
     "dev": "npx ts-node src/index.ts",
     "dev:setup": "npx ts-node src/scripts/setup.ts",
     "dev:note": "npx ts-node src/scripts/note.ts",

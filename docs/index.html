@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>notes</title>
-	<meta name="description" content="Documentation for notes">
+	<title>@prakashraman/notes</title>
+	<meta name="description" content="Documentation for @prakashraman/notes">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">notes</a>
+					<a href="index.html" class="title">@prakashraman/notes</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1>notes</h1>
+			<h1>@prakashraman/notes</h1>
 		</div>
 	</div>
 </header>
@@ -67,9 +67,50 @@
 				<a href="#prakashramannotes" id="prakashramannotes" style="color: inherit; text-decoration: none;">
 					<h1>@prakashraman/notes</h1>
 				</a>
-				<p><img src="https://github.com/prakashraman/notes/workflows/Node.js%20CI/badge.svg?branch=main" alt="Node.js CI">
+				<p><img src="https://github.com/prakashraman/notes/workflows/Test%20Suite/badge.svg?branch=main" alt="Test Suite">
 				<img src="https://img.shields.io/github/package-json/v/prakashraman/notes" alt=""></p>
 				<p>A static personal blog generator which does not require an application server, and the notes can be written in markdown.</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<pre><code><span class="hljs-built_in">npm</span> i --save @prakashraman/notes</code></pre>
+				<a href="#how-it-works" id="how-it-works" style="color: inherit; text-decoration: none;">
+					<h2>How it works</h2>
+				</a>
+				<p>There are few commands which allow complete control over the blog. Namely, <code>setup</code>, <code>notes:create</code>, <code>publish</code></p>
+				<pre><code>              <span class="hljs-symbol">_</span>
+  <span class="hljs-symbol">_</span> <span class="hljs-symbol">__</span>   ___ | |<span class="hljs-symbol">_</span> ___  ___
+ | &#x27;<span class="hljs-symbol">_</span> \ / <span class="hljs-symbol">_</span> \| <span class="hljs-symbol">__</span>/ <span class="hljs-symbol">_</span> \/ <span class="hljs-symbol">__</span>|
+ | | | | (<span class="hljs-symbol">_</span>) | ||  <span class="hljs-symbol">__</span>/\<span class="hljs-symbol">__</span> \
+ |<span class="hljs-symbol">_</span>| |<span class="hljs-symbol">_</span>|\___/ \<span class="hljs-symbol">__</span>\___||___/
+
+Usage: npx pr-notes command
+
+Options:
+  -h, --help      <span class="hljs-built_in">display</span> help <span class="hljs-keyword">for</span> command
+
+Commands:
+  setup           sets up the structure. You don&#x27;t need to run this more than once
+  notes:create    creates a <span class="hljs-built_in">new</span> note
+  notes:list      list all the notes
+  publish         publishes the notes to dist folder
+  help [command]  <span class="hljs-built_in">display</span> help <span class="hljs-keyword">for</span> command</code></pre>
+				<a href="#1-setup-the-blog" id="1-setup-the-blog" style="color: inherit; text-decoration: none;">
+					<h3>1. Setup the blog</h3>
+				</a>
+				<pre><code>npx <span class="hljs-keyword">pr</span>-<span class="hljs-keyword">notes</span> setup</code></pre>
+				<p>Once run, you should see a <code>contents</code> folder in the root of your project. All your notes (markdown) files will reside in this project</p>
+				<p><strong>manifest.json</strong></p>
+				<p>This file is also created during the <code>setup</code> process and is the index of your blog. Do your best to not manually edit this file, however, if you plan to, just be careful.</p>
+				<a href="#2-create-a-note" id="2-create-a-note" style="color: inherit; text-decoration: none;">
+					<h3>2. Create a note</h3>
+				</a>
+				<pre><code>npx <span class="hljs-keyword">pr</span>-<span class="hljs-keyword">notes</span> <span class="hljs-keyword">notes</span>:create</code></pre>
+				<a href="#3-publish-the-note" id="3-publish-the-note" style="color: inherit; text-decoration: none;">
+					<h3>3. Publish the note</h3>
+				</a>
+				<pre><code>npx <span class="hljs-keyword">pr</span>-<span class="hljs-keyword">notes</span> publish</code></pre>
+				<p>And that&#39;s it!</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -79,31 +120,28 @@
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_src_build_.html">&quot;src/build&quot;</a>
+						<a href="modules/_src_lib_build_.html">&quot;src/lib/build&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_src_config_constants_.html">&quot;src/config/constants&quot;</a>
+						<a href="modules/_src_lib_config_constants_.html">&quot;src/lib/config/constants&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_src_config_templates_manifest_.html">&quot;src/config/templates/manifest&quot;</a>
+						<a href="modules/_src_lib_config_templates_manifest_.html">&quot;src/lib/config/templates/manifest&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_src_helpers_.html">&quot;src/helpers&quot;</a>
+						<a href="modules/_src_lib_helpers_.html">&quot;src/lib/helpers&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_src_index_.html">&quot;src/index&quot;</a>
+						<a href="modules/_src_lib_manifest_.html">&quot;src/lib/manifest&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_src_manifest_.html">&quot;src/manifest&quot;</a>
+						<a href="modules/_src_lib_notes_notes_.html">&quot;src/lib/notes/notes&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_src_notes_notes_.html">&quot;src/notes/notes&quot;</a>
+						<a href="modules/_src_lib_setup_.html">&quot;src/lib/setup&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_src_setup_.html">&quot;src/setup&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_src_typings_.html">&quot;src/typings&quot;</a>
+						<a href="modules/_src_lib_typings_.html">&quot;src/lib/typings&quot;</a>
 					</li>
 				</ul>
 			</nav>

@@ -6,6 +6,7 @@ import { program } from "commander";
 import { setup } from "./lib/setup";
 import { createNote, listNotes } from "./lib/notes/notes";
 import { build } from "./lib/build";
+import { setTitle } from "./lib/manifest";
 
 /** The big banner */
 console.log(figlet.textSync("notes"));
@@ -21,6 +22,11 @@ program
     "sets up the structure. You don't need to run this more than once"
   )
   .action(setup);
+
+program
+  .command("set:title")
+  .description("sets the title of the homepage")
+  .action(setTitle);
 
 program
   .command("notes:create")

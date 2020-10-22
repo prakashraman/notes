@@ -29,6 +29,7 @@ Options:
 
 Commands:
   setup           sets up the structure. You don't need to run this more than once
+  set:title       sets the title of the homepage
   notes:create    creates a new note
   notes:list      list all the notes
   publish         publishes the notes to dist folder
