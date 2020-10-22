@@ -44,10 +44,9 @@ const setupFolderForNote = (): string => {
  * 3. Update the manifest file with the note
  *
  * @param {string} title
- * @param {string} author
- * @return {*}  {Note}
+ * @return {*} {Note}
  */
-const setupFreshNote = (title: string, author: string): Note => {
+const setupFreshNote = (title: string): Note => {
   if (!title) {
     log.error(
       "No title found. Not creating a note! Come back after coffee and try again."
@@ -96,15 +95,9 @@ const createNote = () => {
         name: "title",
         message: "Title",
       },
-      {
-        name: "author",
-        type: "input",
-        default: "Prakash Raman",
-        message: "Author",
-      },
     ])
     .then((answers) => {
-      setupFreshNote(answers.title, answers.author);
+      setupFreshNote(answers.title);
     });
 };
 
