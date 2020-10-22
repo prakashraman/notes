@@ -2,6 +2,7 @@ export const ROOT_PATH: string = process.cwd();
 
 export const MANIFEST: string = "manifest.json";
 export const CONTENTS_PATH: string = `contents`;
+export const PUBLIC_PATH: string = `${CONTENTS_PATH}/public`;
 export const MANIFEST_PATH: string = `${CONTENTS_PATH}/${MANIFEST}`;
 export const HEADER_PATH: string = `${CONTENTS_PATH}/header.md`;
 export const FOOTER_PATH: string = `${CONTENTS_PATH}/footer.md`;

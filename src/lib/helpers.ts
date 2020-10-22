@@ -1,4 +1,5 @@
 import chalk from "chalk";
+import { mkdirSync, existsSync, writeFileSync } from "fs";
 
 import { ROOT_PATH } from "./config/constants";
 
@@ -55,4 +56,35 @@ const getAbsolutePath = (path: string): string => {
   return `${ROOT_PATH}/${path}`;
 };
 
-export { log, getAbsolutePath };
+/**
+ * Checks if folder exists before creating it. Logs appropriately.
+ *
+ * @param {string} path
+ * @return {*}  {void}
+ */
+const softMkdirSync = (path: string): void => {
+  if (existsSync(path)) {
+    log.blue(`Folder: ${path} already exists, skipping ...`);
+    return;
+  }
+
+  mkdirSync(path);
+  log.success(`Folder ${path} created ...`);
+};
+
+/**
+ * Checks if the file exists before writing to it. If present the write is skipped.
+ * Logs Appropriately.
+ *
+ * @param {string} path
+ * @param {string} content
+ */
+const softWriteFileSync = (path: string, content: string) => {
+  if (existsSync(path)) {
+    log.blue(`File: ${path} already existing. Skipping write ...`);
+    return;
+  }
+  writeFileSync(path, content);
+};
+
+export { log, getAbsolutePath, softMkdirSync, softWriteFileSync };

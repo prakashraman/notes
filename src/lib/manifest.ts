@@ -1,14 +1,13 @@
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync, existsSync } from "fs";
 import * as inquirer from "inquirer";
 
-import manifestTemplate from "./config/templates/manifest";
 import {
   MANIFEST_PATH,
   CONTENTS_PATH,
   SUMMARY_STRING_LENGTH,
   HEAD_PATH,
 } from "./config/constants";
-import { log, getAbsolutePath } from "./helpers";
+import { log, getAbsolutePath, softWriteFileSync } from "./helpers";
 import { Note, Manifest, INote, IManifest } from "./typings";
 import { getNoteHtml } from "./build";
 import stripHtml from "string-strip-html";
@@ -20,8 +19,7 @@ import moment from "moment";
  */
 const init = (): void => {
   const manifest: Manifest = {
-    ...manifestTemplate,
-    title: "",
+    ...getManifest(),
     createdAt: new Date().toISOString(),
   };
 
@@ -47,7 +45,13 @@ const writeManifest = (manifest: Manifest): void => {
  * @return {*}  {Manifest}
  */
 const getManifest = (): Manifest => {
-  const data = readFileSync(getAbsolutePath(MANIFEST_PATH), {
+  const path = getAbsolutePath(MANIFEST_PATH);
+
+  if (!existsSync(path)) {
+    return { createdAt: new Date().toISOString(), notes: [] };
+  }
+
+  const data = readFileSync(path, {
     encoding: "utf8",
   });
 
@@ -59,9 +63,9 @@ const getManifest = (): Manifest => {
  */
 const setupHeaderAndFooter = (): void => {
   log.blue("Setting up header and footer markdown files");
-  writeFileSync(getAbsolutePath(`${CONTENTS_PATH}/header.md`), "");
-  writeFileSync(getAbsolutePath(`${CONTENTS_PATH}/footer.md`), "");
-  writeFileSync(getAbsolutePath(HEAD_PATH), "");
+  softWriteFileSync(getAbsolutePath(`${CONTENTS_PATH}/header.md`), "");
+  softWriteFileSync(getAbsolutePath(`${CONTENTS_PATH}/footer.md`), "");
+  softWriteFileSync(getAbsolutePath(HEAD_PATH), "");
   log.success("Successfully created header and footer markdown files ...");
 };
 

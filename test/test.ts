@@ -28,17 +28,6 @@ describe("@prakashraman/notes", () => {
       setup();
       expect(existsSync(MANIFEST_PATH)).to.be.true;
     });
-
-    it("will not setup if configuration is already present", () => {
-      setup();
-      try {
-        setup();
-
-        throw new Error("should not reach here");
-      } catch (e) {
-        expect(e.message.toLowerCase()).to.includes("configuration is present");
-      }
-    });
   });
 
   describe("Manifest", () => {
