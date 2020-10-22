@@ -152,13 +152,15 @@ const writeHTMLNotes = () => {
  * Creates the home page under dist
  */
 const writeHomePage = () => {
-  const notes = getIManifest().notes.map((note) => ({
+  const imanifest = getIManifest();
+  const notes = imanifest.notes.map((note) => ({
     title: note.title,
     content: note.summary,
     publishedAt: moment(note.publishedAt).format("MMMM Do YYYY"),
     url: note.relativePath,
   }));
   const html = TEMPLATE.layout({
+    title: imanifest.title ?? "",
     head: HTML.getHead(),
     header: HTML.getHeader(),
     footer: HTML.getFooter(),
