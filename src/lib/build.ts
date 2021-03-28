@@ -23,6 +23,7 @@ import {
   DIST_NOTES_PATH,
   IMANIFEST_PATH,
   DIST_FULL_NOTES_PATH,
+  DIST_PAGES_PATH,
   PUBLIC_PATH,
   HEAD_PATH,
 } from "./config/constants";
@@ -152,6 +153,13 @@ const writeHTMLNotes = () => {
 };
 
 /**
+ * Iterates over all the pages and converts to HTML
+ */
+const writeHTMLPages = () => {
+  getIManifest().pages.forEach((note) => writeHTMLPage(note));
+};
+
+/**
  * Creates the home page under dist
  */
 const writeHomePage = () => {
@@ -173,6 +181,33 @@ const writeHomePage = () => {
 
   writeFileSync(getAbsolutePath(DIST_HOMEPAGE_PATH), html);
   log.success("Successfully created homepage ...");
+};
+
+/**
+ * Converts the note's markdown into HTML and write to a file in
+ * build folder
+ *
+ * @param {Note} note
+ */
+const writeHTMLPage = (note: Note) => {
+  const html = getNoteHtml(note);
+  const filename = `${path.parse(note.path).name}.html`;
+  const filePath = `${DIST_PAGES_PATH}/${filename}`;
+  const pageHtml = TEMPLATE.layout({
+    title: note.title,
+    head: HTML.getHead(),
+    header: TEMPLATE.back({}),
+    footer: HTML.getFooter(),
+    content: TEMPLATE.note({
+      title: note.title,
+      content: html,
+    }),
+    cssPath: "../../main.css",
+  });
+
+  writeFileSync(getAbsolutePath(filePath), pageHtml);
+
+  log.success(`Successfully create HTML file at ${filePath} ...`);
 };
 
 /**
@@ -203,16 +238,19 @@ const writePublicFolder = async (): Promise<void> => {
 const build = async () => {
   clean();
 
-  log.blue("Building notes\nCreating build folder");
+  log.blue("Building notes\nCreating build folders");
   // This creates both the notes and notes/full folders
   mkdirSync(getAbsolutePath(DIST_FULL_NOTES_PATH), { recursive: true });
   log.success(`Created build folder at ${DIST_PATH} ...`);
+  mkdirSync(getAbsolutePath(DIST_PAGES_PATH), { recursive: true });
+  log.success(`Created pages folder at ${DIST_PAGES_PATH}`);
 
   writePublicFolder();
   writeCssFile();
   writeIManifest();
   writeHomePage();
   writeHTMLNotes();
+  writeHTMLPages();
 };
 
 export { build, getNoteHtml };

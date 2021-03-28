@@ -5,6 +5,7 @@ import { program } from "commander";
 
 import { setup } from "./lib/setup";
 import { createNote, listNotes } from "./lib/notes/notes";
+import { createPage } from "./lib/pages/pages";
 import { build } from "./lib/build";
 import { setTitle } from "./lib/manifest";
 
@@ -37,6 +38,11 @@ program
   .command("notes:list")
   .description("list all the notes")
   .action(listNotes);
+
+program
+  .command("pages:create")
+  .description("creates a page")
+  .action(createPage);
 
 program
   .command("publish")

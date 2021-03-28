@@ -93,6 +93,15 @@ const getNote = (id: number): Note => {
 };
 
 /**
+ * Returns the pages from the manifest
+ *
+ * @return {*}  {Note[]}
+ */
+const getPages = (): Note[] => {
+  return getManifest().pages || [];
+};
+
+/**
  * Returns the next available ID for a note
  *
  * @return {*}  {number}
@@ -103,6 +112,19 @@ const getNextNoteId = (): number => {
   if (notes.length === 0) return 1;
 
   return notes[notes.length - 1].id + 1;
+};
+
+/**
+ * Constructs the next available page ID
+ *
+ * @return {*}  {number}
+ */
+const getNextPageId = (): number => {
+  const pages = getPages();
+
+  if (pages.length === 0) return 1;
+
+  return pages[pages.length - 1].id + 1;
 };
 
 /** Interface methods */
@@ -127,12 +149,23 @@ const getINotes = (): INote[] => {
   }));
 };
 
+const getIPages = (): INote[] => {
+  const pages = getPages();
+
+  return pages.map<INote>((note) => ({
+    ...note,
+    summary: note.title,
+    relativePath: `./pages/${note.handle}.html`,
+  }));
+};
+
 const getIManifest = (): IManifest => {
   const manifest = getManifest();
 
   return {
     ...manifest,
     notes: getINotes(),
+    pages: getIPages(),
   };
 };
 
@@ -160,9 +193,11 @@ export {
   init,
   getManifest,
   getNextNoteId,
+  getNextPageId,
   writeManifest,
   getNotes,
   getNote,
+  getPages,
   getIManifest,
   setupHeaderAndFooter,
   setTitle,

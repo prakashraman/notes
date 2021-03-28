@@ -1,6 +1,4 @@
-import { existsSync, mkdirSync } from "fs";
-
-import { log, softMkdirSync } from "./helpers";
+import { softMkdirSync } from "./helpers";
 import * as constants from "./config/constants";
 import { init as initManifest, setupHeaderAndFooter } from "./manifest";
 
@@ -16,6 +14,7 @@ const init = (): void => {
   setupHeaderAndFooter();
 
   softMkdirSync(constants.NOTES_PATH);
+  softMkdirSync(constants.PAGES_PATH);
 };
 
 /**

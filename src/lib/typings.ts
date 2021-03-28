@@ -25,6 +25,8 @@ export type Note = {
 export type Manifest = {
   /** List of Notes[] */
   notes: Note[];
+  /** List of pages */
+  pages?: Note[];
   /** Title of the homepage */
   title?: string;
   /** Auto-generated timestamp during init */
@@ -46,4 +48,5 @@ export type INote = Note & {
  */
 export type IManifest = Pick<Manifest, "createdAt" | "title"> & {
   notes: INote[];
+  pages: INote[];
 };
