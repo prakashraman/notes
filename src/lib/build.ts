@@ -129,7 +129,7 @@ const writeHTMLNote = (note: Note) => {
   const fullHtml = TEMPLATE.layout({
     title: note.title,
     head: HTML.getHead(),
-    header: TEMPLATE.back({}),
+    header: TEMPLATE.back({ path: "../../index.html" }),
     footer: HTML.getFooter(),
     content: TEMPLATE.note({
       title: note.title,
@@ -196,7 +196,7 @@ const writeHTMLPage = (note: Note) => {
   const pageHtml = TEMPLATE.layout({
     title: note.title,
     head: HTML.getHead(),
-    header: TEMPLATE.back({}),
+    header: TEMPLATE.back({ path: "../index.html" }),
     footer: HTML.getFooter(),
     content: TEMPLATE.note({
       title: note.title,
