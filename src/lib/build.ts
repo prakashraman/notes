@@ -202,7 +202,7 @@ const writeHTMLPage = (note: Note) => {
       title: note.title,
       content: html,
     }),
-    cssPath: "../../main.css",
+    cssPath: "../main.css",
   });
 
   writeFileSync(getAbsolutePath(filePath), pageHtml);
