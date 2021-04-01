@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "test": "npx mocha --require ts-node/register 'test/test.ts'",
-    "coverage": "npx nyc --report-dir=coverage --reporter=lcov npm run test",
+    "coverage": "npx nyc --report-dir=coverage --reporter=lcov --reporter=text npm run test",
     "codecov": "npm run coverage && bash ./scripts/codecov.sh",
     "build": "npx tsc",
     "postbuild": "npx cpy '**/*' '!**/*.ts' '../build/' --cwd=src --parents",
