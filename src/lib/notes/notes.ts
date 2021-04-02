@@ -118,4 +118,4 @@ const listNotes = (): void => {
   });
 };
 
-export { createNote, listNotes };
+export { createNote, listNotes, setupFreshNote };

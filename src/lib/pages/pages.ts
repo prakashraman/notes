@@ -25,7 +25,7 @@ const createPage = () => {
     });
 };
 
-const setupFreshPage = (title: string) => {
+const setupFreshPage = (title: string): Note => {
   const id = getNextPageId();
   const handle = slugify(title.toLowerCase(), { strict: true });
   const path = `${PAGES_PATH}/${handle}.md`;
@@ -55,6 +55,8 @@ const setupFreshPage = (title: string) => {
     ...manifest,
     pages: [...(manifest.pages ?? []), note],
   });
+
+  return note;
 };
 
-export { createPage };
+export { createPage, setupFreshPage };
