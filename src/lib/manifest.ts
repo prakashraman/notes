@@ -193,7 +193,6 @@ const setTitle = (cb: (title: string) => void): void => {
       default: manifest.title,
     })
     .then((answers) => {
-      console.log({ answers });
       writeManifest({
         ...manifest,
         title: answers.title,

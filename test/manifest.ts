@@ -17,7 +17,7 @@ import {
 import {
   createTestNote,
   createTestPage,
-  stubInquirerPrompt,
+  setStubInquirerPrompt,
 } from "./test-helpers";
 
 describe("Manifest", () => {
@@ -139,7 +139,7 @@ describe("Manifest", () => {
 
   it("can set the title of the blog", (done) => {
     setup();
-    stubInquirerPrompt("title", "hello");
+    setStubInquirerPrompt("title", "hello");
 
     setTitle((_title) => {
       expect(getIManifest().title).to.be.eq("hello");

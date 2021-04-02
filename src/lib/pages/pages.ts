@@ -4,14 +4,14 @@ import { existsSync, writeFileSync } from "fs";
 
 import { getNextPageId, getManifest, writeManifest } from "../manifest";
 import { PAGES_PATH } from "../config/constants";
-import { softWriteFileSync, getAbsolutePath, log } from "../helpers";
+import { getAbsolutePath, log } from "../helpers";
 import { Note } from "../typings";
 
 /**
  * Creates the new note, by asking a series of very personal questions
  *
  */
-const createPage = () => {
+const createPage = (cb: (note: Note) => void) => {
   inquirer
     .prompt([
       {
@@ -21,7 +21,8 @@ const createPage = () => {
       },
     ])
     .then((answers) => {
-      setupFreshPage(answers.title);
+      const note = setupFreshPage(answers.title);
+      cb(note);
     });
 };
 

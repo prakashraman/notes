@@ -32,7 +32,7 @@ program
 program
   .command("notes:create")
   .description("creates a new note")
-  .action(createNote);
+  .action(() => createNote((_note) => {}));
 
 program
   .command("notes:list")
@@ -42,7 +42,7 @@ program
 program
   .command("pages:create")
   .description("creates a page")
-  .action(createPage);
+  .action(() => createPage((_note) => {}));
 
 program
   .command("publish")

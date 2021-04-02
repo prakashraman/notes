@@ -51,7 +51,7 @@ const setupFreshNote = (title: string): Note => {
     log.error(
       "No title found. Not creating a note! Come back after coffee and try again."
     );
-    return;
+    throw new Error("You cannot create a note without a title");
   }
   const id = getNextNoteId();
   const handle = slugify(`${id}-${title.toLowerCase()}`, { strict: true });
@@ -85,9 +85,8 @@ const setupFreshNote = (title: string): Note => {
 
 /**
  * Creates the new note, by asking a series of very personal questions
- *
  */
-const createNote = () => {
+const createNote = (cb: (note: Note) => void) => {
   inquirer
     .prompt([
       {
@@ -97,7 +96,8 @@ const createNote = () => {
       },
     ])
     .then((answers) => {
-      setupFreshNote(answers.title);
+      const note = setupFreshNote(answers.title);
+      cb(note);
     });
 };
 
@@ -114,7 +114,7 @@ const listNotes = (): void => {
   log.success(`Found ${notes.length} note(s)`);
 
   notes.forEach((note) => {
-    log.log(`[id: ${note.id}]: ${note.title}`);
+    log.success(`[id: ${note.id}]: ${note.title}`);
   });
 };
 
