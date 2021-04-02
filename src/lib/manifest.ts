@@ -149,6 +149,11 @@ const getINotes = (): INote[] => {
   }));
 };
 
+/**
+ * Returns the pages as INote[] from the manifest
+ *
+ * @return {*}  {INote[]}
+ */
 const getIPages = (): INote[] => {
   const pages = getPages();
 
@@ -159,6 +164,11 @@ const getIPages = (): INote[] => {
   }));
 };
 
+/**
+ * Constructs and returns the IManifest from the manifest.json file
+ *
+ * @return {*}  {IManifest}
+ */
 const getIManifest = (): IManifest => {
   const manifest = getManifest();
 
@@ -169,7 +179,10 @@ const getIManifest = (): IManifest => {
   };
 };
 
-const setTitle = (): void => {
+/**
+ * Sets the main title of the blog
+ */
+const setTitle = (cb: (title: string) => void): void => {
   const manifest = getManifest();
 
   inquirer
@@ -180,12 +193,14 @@ const setTitle = (): void => {
       default: manifest.title,
     })
     .then((answers) => {
+      console.log({ answers });
       writeManifest({
         ...manifest,
         title: answers.title,
       });
 
       log.success("Successfully set the new title. Republish to view changes.");
+      cb(answers.title);
     });
 };
 
@@ -201,4 +216,6 @@ export {
   getIManifest,
   setupHeaderAndFooter,
   setTitle,
+  getINotes,
+  getIPages,
 };
