@@ -74,15 +74,19 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#getimanifest" class="tsd-kind-icon">getIManifest</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_src_lib_manifest_.html#getinotes" class="tsd-kind-icon">getINotes</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#getinotes" class="tsd-kind-icon">getINotes</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#getipages" class="tsd-kind-icon">getIPages</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#getmanifest" class="tsd-kind-icon">get<wbr>Manifest</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#getnextnoteid" class="tsd-kind-icon">get<wbr>Next<wbr>Note<wbr>Id</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#getnextpageid" class="tsd-kind-icon">get<wbr>Next<wbr>Page<wbr>Id</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#getnote" class="tsd-kind-icon">get<wbr>Note</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#getnotes" class="tsd-kind-icon">get<wbr>Notes</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#getpages" class="tsd-kind-icon">get<wbr>Pages</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#init" class="tsd-kind-icon">init</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#settitle" class="tsd-kind-icon">set<wbr>Title</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#setupheaderandfooter" class="tsd-kind-icon">setup<wbr>Header<wbr>And<wbr>Footer</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#writemanifest" class="tsd-kind-icon">write<wbr>Manifest</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_manifest_.html#writetitletomanifest" class="tsd-kind-icon">write<wbr>Title<wbr>ToManifest</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,29 +104,58 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/manifest.ts#L130">src/lib/manifest.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L172">src/lib/manifest.ts:172</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Constructs and returns the IManifest from the manifest.json file</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_src_lib_typings_.html#imanifest" class="tsd-signature-type">IManifest</a></h4>
+							<p>{IManifest}</p>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="getinotes" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> getINotes</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
 						<li class="tsd-signature tsd-kind-icon">getINotes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_src_lib_typings_.html#inote" class="tsd-signature-type">INote</a><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/manifest.ts#L115">src/lib/manifest.ts:115</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L137">src/lib/manifest.ts:137</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns the INotes from the manifest order by published_at [desc]</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_src_lib_typings_.html#inote" class="tsd-signature-type">INote</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>{INote[]}</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="getipages" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> getIPages</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">getIPages<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_src_lib_typings_.html#inote" class="tsd-signature-type">INote</a><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L157">src/lib/manifest.ts:157</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the pages as INote[] from the manifest</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_src_lib_typings_.html#inote" class="tsd-signature-type">INote</a><span class="tsd-signature-symbol">[]</span></h4>
@@ -140,7 +173,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/manifest.ts#L47">src/lib/manifest.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L47">src/lib/manifest.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -163,12 +196,35 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/manifest.ts#L100">src/lib/manifest.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L109">src/lib/manifest.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns the next available ID for a note</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>{number}</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="getnextpageid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Next<wbr>Page<wbr>Id</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Next<wbr>Page<wbr>Id<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L122">src/lib/manifest.ts:122</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Constructs the next available page ID</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -186,7 +242,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/manifest.ts#L87">src/lib/manifest.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L87">src/lib/manifest.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -215,12 +271,35 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/manifest.ts#L77">src/lib/manifest.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L77">src/lib/manifest.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Return all the notes from the manifest</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_src_lib_typings_.html#note" class="tsd-signature-type">Note</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>{Note[]}</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="getpages" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Pages</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Pages<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_src_lib_typings_.html#note" class="tsd-signature-type">Note</a><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L100">src/lib/manifest.ts:100</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the pages from the manifest</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_src_lib_typings_.html#note" class="tsd-signature-type">Note</a><span class="tsd-signature-symbol">[]</span></h4>
@@ -238,7 +317,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/manifest.ts#L20">src/lib/manifest.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L20">src/lib/manifest.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -254,15 +333,44 @@
 					<a name="settitle" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> set<wbr>Title</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Title<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Title<span class="tsd-signature-symbol">(</span>cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/manifest.ts#L139">src/lib/manifest.ts:139</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L199">src/lib/manifest.ts:199</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the main title of the blog</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>cb: <span class="tsd-signature-symbol">(</span>title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>title: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -277,7 +385,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/manifest.ts#L64">src/lib/manifest.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L64">src/lib/manifest.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -299,7 +407,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/manifest.ts#L34">src/lib/manifest.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L34">src/lib/manifest.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -311,6 +419,38 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>manifest: <a href="_src_lib_typings_.html#manifest" class="tsd-signature-type">Manifest</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="writetitletomanifest" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> write<wbr>Title<wbr>ToManifest</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">write<wbr>Title<wbr>ToManifest<span class="tsd-signature-symbol">(</span>title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/manifest.ts#L187">src/lib/manifest.ts:187</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Writes the title to the manifest</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>title: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 										</div>
@@ -345,6 +485,9 @@
 						<a href="_src_lib_notes_notes_.html">&quot;src/lib/notes/notes&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="_src_lib_pages_pages_.html">&quot;src/lib/pages/pages&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="_src_lib_setup_.html">&quot;src/lib/setup&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -357,8 +500,11 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_src_lib_manifest_.html#getimanifest" class="tsd-kind-icon">getIManifest</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_src_lib_manifest_.html#getinotes" class="tsd-kind-icon">getINotes</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_src_lib_manifest_.html#getipages" class="tsd-kind-icon">getIPages</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_src_lib_manifest_.html#getmanifest" class="tsd-kind-icon">get<wbr>Manifest</a>
@@ -367,10 +513,16 @@
 						<a href="_src_lib_manifest_.html#getnextnoteid" class="tsd-kind-icon">get<wbr>Next<wbr>Note<wbr>Id</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_src_lib_manifest_.html#getnextpageid" class="tsd-kind-icon">get<wbr>Next<wbr>Page<wbr>Id</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_src_lib_manifest_.html#getnote" class="tsd-kind-icon">get<wbr>Note</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_src_lib_manifest_.html#getnotes" class="tsd-kind-icon">get<wbr>Notes</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_src_lib_manifest_.html#getpages" class="tsd-kind-icon">get<wbr>Pages</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_src_lib_manifest_.html#init" class="tsd-kind-icon">init</a>
@@ -383,6 +535,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_src_lib_manifest_.html#writemanifest" class="tsd-kind-icon">write<wbr>Manifest</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_src_lib_manifest_.html#writetitletomanifest" class="tsd-kind-icon">write<wbr>Title<wbr>ToManifest</a>
 					</li>
 				</ul>
 			</nav>

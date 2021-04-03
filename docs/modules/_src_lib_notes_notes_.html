@@ -76,7 +76,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_notes_notes_.html#createnote" class="tsd-kind-icon">create<wbr>Note</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_notes_notes_.html#listnotes" class="tsd-kind-icon">list<wbr>Notes</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_src_lib_notes_notes_.html#setupfolderfornote" class="tsd-kind-icon">setup<wbr>Folder<wbr>For<wbr>Note</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_src_lib_notes_notes_.html#setupfreshnote" class="tsd-kind-icon">setup<wbr>Fresh<wbr>Note</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_lib_notes_notes_.html#setupfreshnote" class="tsd-kind-icon">setup<wbr>Fresh<wbr>Note</a></li>
 							</ul>
 						</section>
 					</div>
@@ -88,13 +88,13 @@
 					<a name="createnote" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> create<wbr>Note</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Note<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Note<span class="tsd-signature-symbol">(</span>cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>note<span class="tsd-signature-symbol">: </span><a href="_src_lib_typings_.html#note" class="tsd-signature-type">Note</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/notes/notes.ts#L90">src/lib/notes/notes.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/notes/notes.ts#L89">src/lib/notes/notes.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -102,6 +102,30 @@
 									<p>Creates the new note, by asking a series of very personal questions</p>
 								</div>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>cb: <span class="tsd-signature-symbol">(</span>note<span class="tsd-signature-symbol">: </span><a href="_src_lib_typings_.html#note" class="tsd-signature-type">Note</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>note<span class="tsd-signature-symbol">: </span><a href="_src_lib_typings_.html#note" class="tsd-signature-type">Note</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>note: <a href="_src_lib_typings_.html#note" class="tsd-signature-type">Note</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -116,7 +140,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/notes/notes.ts#L108">src/lib/notes/notes.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/notes/notes.ts#L108">src/lib/notes/notes.ts:108</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -138,7 +162,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/notes/notes.ts#L21">src/lib/notes/notes.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/notes/notes.ts#L21">src/lib/notes/notes.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -151,17 +175,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="setupfreshnote" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> setup<wbr>Fresh<wbr>Note</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
 						<li class="tsd-signature tsd-kind-icon">setup<wbr>Fresh<wbr>Note<span class="tsd-signature-symbol">(</span>title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_src_lib_typings_.html#note" class="tsd-signature-type">Note</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/6fc3e15/src/lib/notes/notes.ts#L49">src/lib/notes/notes.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/prakashraman/notes/blob/775c0ed/src/lib/notes/notes.ts#L49">src/lib/notes/notes.ts:49</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -209,6 +233,9 @@
 						<a href="_src_lib_notes_notes_.html">&quot;src/lib/notes/notes&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="_src_lib_pages_pages_.html">&quot;src/lib/pages/pages&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="_src_lib_setup_.html">&quot;src/lib/setup&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -227,7 +254,7 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_src_lib_notes_notes_.html#setupfolderfornote" class="tsd-kind-icon">setup<wbr>Folder<wbr>For<wbr>Note</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_src_lib_notes_notes_.html#setupfreshnote" class="tsd-kind-icon">setup<wbr>Fresh<wbr>Note</a>
 					</li>
 				</ul>
