@@ -10,6 +10,8 @@ Build and maintain your blog with just Markdown.
 
 View a running instance at [www.prakashraman.info](http://www.prakashraman.info).
 
+![Screenshot](./screenshots/screenshot-desktop.png)
+
 ## Installation & basic setup
 
 ```sh
