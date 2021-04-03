@@ -180,6 +180,20 @@ const getIManifest = (): IManifest => {
 };
 
 /**
+ * Writes the title to the manifest
+ *
+ * @param {string} title
+ */
+const writeTitleToManifest = (title: string) => {
+  const manifest = getManifest();
+
+  writeManifest({
+    ...manifest,
+    title,
+  });
+};
+
+/**
  * Sets the main title of the blog
  */
 const setTitle = (cb: (title: string) => void): void => {
@@ -193,11 +207,7 @@ const setTitle = (cb: (title: string) => void): void => {
       default: manifest.title,
     })
     .then((answers) => {
-      writeManifest({
-        ...manifest,
-        title: answers.title,
-      });
-
+      writeTitleToManifest(answers.title);
       log.success("Successfully set the new title. Republish to view changes.");
       cb(answers.title);
     });
@@ -214,6 +224,7 @@ export {
   getPages,
   getIManifest,
   setupHeaderAndFooter,
+  writeTitleToManifest,
   setTitle,
   getINotes,
   getIPages,

@@ -1,7 +1,9 @@
 import chalk from "chalk";
 import { mkdirSync, existsSync, writeFileSync } from "fs";
+import * as path from "path";
 
-import { ROOT_PATH } from "./config/constants";
+import { ROOT_PATH, DIST_NOTES_PATH } from "./config/constants";
+import { Note } from "./typings";
 
 /**
  * Logs in blue
@@ -87,4 +89,35 @@ const softWriteFileSync = (path: string, content: string) => {
   writeFileSync(path, content);
 };
 
-export { log, getAbsolutePath, softMkdirSync, softWriteFileSync };
+/**
+ * Returns the dist path of the summary article of the note
+ *
+ * @param {Note} note
+ * @return {*}  {string}
+ */
+const getDistFilePathForNote = (note: Note): string => {
+  const filename = `${path.parse(note.path).name}.html`;
+
+  return `${DIST_NOTES_PATH}/${filename}`;
+};
+
+/**
+ * Returns the dist path of the full article of the note
+ *
+ * @param {Note} note
+ * @return {*}  {string}
+ */
+const getDistFullFilePathForNote = (note: Note): string => {
+  const filename = `${path.parse(note.path).name}.html`;
+
+  return `${DIST_NOTES_PATH}/${filename}`;
+};
+
+export {
+  log,
+  getAbsolutePath,
+  softMkdirSync,
+  softWriteFileSync,
+  getDistFilePathForNote,
+  getDistFullFilePathForNote,
+};

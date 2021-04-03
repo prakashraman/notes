@@ -13,7 +13,12 @@ import * as path from "path";
 import * as Handlebars from "handlebars";
 import moment from "moment";
 
-import { log, getAbsolutePath } from "./helpers";
+import {
+  log,
+  getAbsolutePath,
+  getDistFilePathForNote,
+  getDistFullFilePathForNote,
+} from "./helpers";
 import { getIManifest } from "./manifest";
 import {
   DIST_PATH,
@@ -120,12 +125,14 @@ const getNoteHtml = (note: Note): string => {
  * build folder
  *
  * @param {Note} note
+ * @return {*}  {{ filePath: string; fullFilePath: string }}
  */
-const writeHTMLNote = (note: Note) => {
+const writeHTMLNote = (
+  note: Note
+): { filePath: string; fullFilePath: string } => {
   const html = getNoteHtml(note);
-  const filename = `${path.parse(note.path).name}.html`;
-  const filePath = `${DIST_NOTES_PATH}/${filename}`;
-  const fullFilePath = `${DIST_FULL_NOTES_PATH}/${filename}`;
+  const filePath = getDistFilePathForNote(note);
+  const fullFilePath = getDistFullFilePathForNote(note);
   const fullHtml = TEMPLATE.layout({
     title: note.title,
     head: HTML.getHead(),
@@ -143,6 +150,8 @@ const writeHTMLNote = (note: Note) => {
   writeFileSync(getAbsolutePath(fullFilePath), fullHtml);
 
   log.success(`Successfully create HTML file at ${filePath} ...`);
+
+  return { filePath, fullFilePath };
 };
 
 /**
@@ -253,4 +262,4 @@ const build = async () => {
   writeHTMLPages();
 };
 
-export { build, getNoteHtml };
+export { build, getNoteHtml, clean, writeHTMLNote };
