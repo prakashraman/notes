@@ -114,3 +114,4 @@ Upcoming features which I will develop as the need arises.
 * Introduce note.status in Note{}
 * Introduce note.isDeleted in Note{}
 * Handle pagination for the home page (with a page_size configuration in Manifest{})
+* Include note.tags in Note{}
