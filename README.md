@@ -105,3 +105,12 @@ Example:<br>
 https://github.com/prakashraman/life-blog is the content repository for [www.prakashraman.info](http://www.prakashraman.info)
 
 _The same process would work with any of the cloud based static site web hosting providers. e,g netlify.com, render.com, surge.sh and many others_
+
+
+## Roadmap
+
+Upcoming features which I will develop as the need arises. 
+
+* Introduce note.status in Note{}
+* Introduce note.isDeleted in Note{}
+* Handle pagination for the home page (with a page_size configuration in Manifest{})
