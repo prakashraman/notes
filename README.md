@@ -101,7 +101,7 @@ And viola! Your website is now publicly available on the web url mentioned in th
 
 Further every time you push changes to your git-repo will automatically trigger a re-build and deploy of your website.
 
-Exmaple:<br>
+Example:<br>
 https://github.com/prakashraman/life-blog is the content repository for [www.prakashraman.info](http://www.prakashraman.info)
 
 _The same process would work with any of the cloud based static site web hosting providers. e,g netlify.com, render.com, surge.sh and many others_
